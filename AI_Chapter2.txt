@@ -1,0 +1,73 @@
+Chapter Outline *check the vid slide 3,7
+◼ Agents and Environments
+◼ How Agents Should Act
+◼ Rational Agents                                          percepts
+◼ Task Environment of Agent
+◼ Structure of Agents
+
+rational agent(program)-> making decisions aka reasoning->goal ->based on available info and understanding the environment.
+
+perceive be aware of something through sense" sight, hearing ,etc"
+
+The Big AI Picture -> agent (exist in an environment and perceive, act, and learn)
+1: Sense from the environment.
+2: Reason inside it!! see slide 2 arrow.
+3: Act in the environment.
+4: Get Feedback form the environment.
+5: Learn "agent".
+
+An agent is anything that can be viewed as perceiving its environment through sensors and acting upon that environment through actuators.
+Human agent has:
+– Eyes, ears, and other organs for sensors;
+– Hands, legs, mouth, and other body parts for actuators.
+◼ Robotic agent has:
+– Cameras and infrared range finders for sensors;
+– Various motors for actuators.
+◼ Software agent:
+– Receives keystrokes, file contents, and network packets as inputs;
+– Displays on screen, writes files, and sends net packets as outputs.
+
+Agents interact with environments through sensors and actuators.
+
+◼ Mathematically, an agent’s behavior is described by
+the agent function that maps from percept histories to
+actions:
+                   [ f: P* → A ]
+
+agent function -> implemented by -> agent program -> running on -> agent architecture -> to produce -> f
+                   agent = architecture + program
+ 
+
+example:
+Vacuum-cleaner world
+◼ Environment: just two locations – squares A and B
+◼ Percepts: which square it is in (location) and whether
+there is dirt in the square (contents), e.g., [A, Dirty]
+◼ Actions: move left, move right, suck up the dirt, or do
+nothing
+◼ Agent function: if the current square is dirty, then
+suck; otherwise move to the other square.
+
+
+How Agents Should Act
+◼ A rational agent is one that does “the right thing”
+based on what it can perceive and the actions it can
+perform.
+◼ We use the term performance measure for the how —
+the criteria that determine how successful an agent is.
+◼ The when of evaluating performance is also important.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

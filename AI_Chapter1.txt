@@ -1,0 +1,130 @@
+AI (rapidly) replacing ‘white collar’ jobs-> office environment 
+(Robots have been replacing ‘blue collar’ jobs for awhile)-> manual work
+
+definitions of AI fall
+into four categories:
+– Systems that think like humans.(Cognitive Modeling *see this part 24) -> decision making, problem solving and learning.
+– Systems that act like humans. (Turing Test)
+– Systems that think rationally.(Laws of Thought *see this part 25)-> perceive, reason and act.
+– Systems that act rationally. -> intelligent agents.
+
+intelligent agents: are programs that perceive their environment and take actions to achieve their goals effectively.
+
+Acting Humanly: Turing Test
+Turing: intelligent behavior as the
+ability to achieve human-level performance in all
+cognitive tasks"mental activities such as problem-solving, decision-making, and memory recall", sufficient to fool an interrogator"a person who interview someone in order to gather info".
+> passes the test if the interrogator cannot
+tell if there is a computer or a human at the other end.
+Suggested major components of AI: " realted to the Turing Test"
+– Natural Language Processing to enable it to communicate
+successfully in English (or some other human language);
+– Knowledge Representation to store information provided
+before or during the interrogation;
+– Automated Reasoning to use the stored information to
+answer questions and to draw new conclusions;
+– Machine Learning to adapt to new circumstances and to
+detect and extrapolate patterns;
+– Computer Vision to perceive objects, and...
+– Robotics to move them about...
+
+This course is about designing rational agents.
+
+Fundamental Techniques of AI
+Knowledge Representation:
+– Characteristics of good data representation techniques:
+» Captures general situation rather than being overly specific
+» Understandable by the people who provide it
+» Easily modified to handle errors, changes in data, and changes in perception
+» Of general use
+Search:
+– Base-level versus meta-level reasoning
+» How can we reason about what step to take next (in reaching the
+goal)?
+» How much do we reason before acting?
+
+AI techniques are used in many common applications:
+– Intelligent user interfaces
+– Search Engines
+– Spell/grammar checkers
+– Context sensitive help systems
+– Medical diagnosis systems
+– Regulating/Controlling hardware devices and processes
+(e.g, in automobiles)
+– Voice/image recognition (more generally, pattern
+recognition)
+– Scheduling systems (airlines, hotels, manufacturing)
+– Error detection/correction in electronic communication
+– Program verification / compiler and programming language
+design
+– Web search engines / Web spiders
+– Web personalization and Recommender systems
+(collaborative/content filtering)
+– Personal agents
+– Customer relationship management
+– Credit card verification in e-commerce / fraud detection
+– Data mining and knowledge discovery in databases
+– Computer games
+
+Locomotion:
+the movement or navigation capabilities of artificial agents, such as robots or virtual characters, within a simulated or real-world environment.
+
+Robot Vision:
+objects recognition.
+face recognition.
+speech or sound recognition.
+texture recognition.
+
+
+In The Future
+Blind person
+Robot will
+read the
+book! :)
+
+
+Some Sub-fields of AI
+◼Problem solving
+◼Logical reasoning
+– Prove things by manipulating database of facts
+– Theorem proving
+◼Automatic Programming
+– Writing computer programs given some sort of description
+– Some success with semi-automated methods
+– Some error detection systems
+– Automatic program verification
+◼Language understanding and semantic modeling
+◼ Pattern Recognition
+– Computer-aided identification of objects/shapes/sounds
+– Needed for speech and picture understanding
+– Requires signal acquisition, feature extraction, ...
+– Data mining and Information Retrieval
+◼ Expert Systems and Knowledge-based Systems
+– Designers often called knowledge engineers
+– Translate things that an expert knows and rules that an expert
+uses to make decisions into a computer program
+– Problems include
+» Knowledge acquisition (or how do we get the information)
+» Explanation (of the answers)
+» Knowledge models (what do we do with info)
+» Handling uncertainty
+◼ Planning, Robotics and Vision
+◼ Machine Learning and Neural Networks
+– Can we “remember” solutions, rather than recalculating
+them?
+– Can we learn additional facts from present data?
+– Can we model the physical aspects of the brain?
+– Classification and clustering
+◼ Non-monotonic Reasoning
+– Truth maintenance systems
+
+
+
+
+
+
+
+
+
+
+
