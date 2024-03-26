@@ -50,12 +50,281 @@ suck; otherwise move to the other square.
 
 
 How Agents Should Act
-◼ A rational agent is one that does “the right thing”
-based on what it can perceive and the actions it can
-perform.
+◼ What makes an agent good or bad, intelligent or stupid?
+◼ A rational agent is one that does “the right thing” based on what it can perceive and the actions it can perform.
+◼ The right action is the one that will cause the agent to
+be most successful
+– Leaves us with the problem of deciding how and when to
+evaluate the agent's success.
 ◼ We use the term performance measure for the how —
 the criteria that determine how successful an agent is.
 ◼ The when of evaluating performance is also important.
+
+How Agents Should Act
+not one fixed measure suitable for all agents.
+– There are different criteria for different agents.
+◼ Therefore, we will insist on an objective performance measure imposed by some authority.
+◼ Outside observers establish a standard of what it means to be successful in an environment and use it to measure the performance of agents.
+– E.g., performance measure of a vacuum-cleaner agent could be amount of dirt cleaned up, amount of time taken, amount of electricity consumed, amount of noise generated, etc.
+
+example slide 10
+
+Rationality vs. Success
+◼ Note that: rational ≠ successful
+◼ Rationality depends not only on the performance
+measure, but also on:
+– Agent’s sensory capabilities (what it can sense).
+» Coffee-agents that detect obstacles visually vs. those that use collision
+detection.
+– Agent’s actuator capabilities (what it can do).
+» Coffee-agents that can heat coffee with a built-in coil vs. those that
+cannot.
+– Agent’s knowledge.
+» Informed agents, uninformed agents, misinformed agents.
+
+Rational Agents
+◼ What is rational at any given time depends on four
+things:
+– The performance measure that defines the criterion of success.
+– The agent’s prior knowledge of the environment.
+– The actions that the agent can perform.
+– The agent’s percept sequence to date.
+◼ Rational Agent Definition:
+For each possible percept sequence, a rational agent
+should select an action that is expected to maximize its
+performance measure, given the evidence provided by
+the percept sequence and whatever built-in knowledge
+the agent has.
+
+Rational Agents
+◼ Need to distinguish between rationality and omniscience
+– An omniscient agent (all-knowing with infinite knowledge)
+knows the actual outcome of its actions, and can act
+accordingly.
+– But omniscience is impossible in reality.
+◼ Rationality is not the same as perfection
+– Rationality maximizes expected performance, while perfection
+maximizes actual performance.
+◼ Agents, to be rational, can perform actions to obtain
+useful information in order to modify future percepts
+(information gathering, exploration).
+◼ A rational agent should be autonomous
+– Its behavior is determined by its own experience (with ability
+to learn and adapt its prior knowledge).
+
+Specifying the Task Environment
+◼ To design an agent, the first step is to specify its task
+environment as fully as possible.
+◼ The task environment of any agent includes:
+1. Performance measure.
+2. Environment.
+3. Actuators.
+4. Sensors.
+◼ For the acronymically minded, we call this the PEAS
+(Performance, Environment, Actuators, Sensors)
+description.
+
+slide 15,16,17,18 example
+
+Properties of Task Environments
+◼ The task environments can be categorized according to number of dimensions:
+– Fully observable (vs. partially observable): An agent's sensors give it access to the complete state of the environment at each point in time.
+– Single agent (vs. multi-agent): An agent operating by itself in an environment.
+– Deterministic (vs. stochastic): Next state of the environment is completely determined by the current state and the action executed by the agent.
+– Episodic (vs. sequential): In an episodic task environment, the agent's experience is divided into atomic episodes – each episode consists of the agent percept and then performing a single action.
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Dynamic vs. static: If the environment can change while an
+agent is deliberating, then we say the environment is dynamic
+for that agent; otherwise, it is static.
+– Discrete (vs. continuous): A limited number of distinct,
+clearly defined percepts and actions.
+– Known (vs. unknown): The rules of the game, or
+physics/dynamics of the environment are known to the agent.
+◼ These properties of various task environments determine
+the appropriate agent design and the applicable technique
+for agent implementation.
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Fully observable (vs. partially observable): An agent's sensors
+give it access to the complete state of the environment at each
+point in time.
+» A task environment is effectively fully observable if the sensors detect
+all aspects that are relevant (depends on the performance measure) to
+the choice of action.
+» Fully observable environments are convenient because the agent need
+not maintain any internal state to keep track of the world.
+» An environment might be partially observable because of noisy and
+inaccurate sensors or because parts of the state are simply missing from
+the sensor data:
+» If the agent has no sensors at all then the environment is unobservable.
+
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Single agent (vs. multi-agent): An agent operating by itself in
+an environment.
+» For example, an agent solving a crossword puzzle by itself is clearly in
+a single-agent environment, whereas an agent playing chess is in a two-
+agent environment.
+» Chess is a competitive multi-agent environment.
+◼ In chess, the opponent entity B is trying to maximize its performance
+measure, which, by the rules of chess, minimizes agent A’s performance
+measure.
+» In the taxi-driving environment, on the other hand, avoiding collisions
+maximizes the performance measure of all agents, so it is a partially
+cooperative multi-agent environment.
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Episodic (vs. sequential): In an episodic task environment, the
+agent's experience is divided into atomic episodes – each
+episode consists of the agent percept and then performing a
+single action.
+» Choice of action in each episode depends only on the episode itself.
+◼ Next episode does not depend on the actions taken in previous episodes.
+» In sequential environments, the current decision could affect all future
+decisions.
+◼ Chess and taxi driving are sequential: in both cases, short-term actions can have
+long-term consequences.
+» Episodic environments are much simpler than sequential environments
+because the agent does not need to think ahead.
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Deterministic (vs. stochastic): Next state of the environment
+is completely determined by the current state and the action
+executed by the agent.
+» In principle, an agent need not worry about uncertainty in a fully
+observable, deterministic environment.
+◼ If the environment is deterministic except for the actions of other agents; in
+a multi-agent environment, then the environment is strategic.
+◼ Thus, a game can be deterministic even though each agent may be unable
+to predict the actions of the others.
+» If the environment is partially observable, however, then it could
+appear to be stochastic.
+◼ Most real situations are so complex that it is impossible to keep track of all
+the unobserved aspects; therefore, they must be treated as stochastic.
+» It is often better to think of an environment as deterministic or stochastic
+from the point of view of the agent.
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Dynamic vs. static: If the environment can change while an
+agent is deliberating, then we say the environment is dynamic
+for that agent; otherwise, it is static.
+» Static environments are easy to deal with.
+◼ Because the agent need not keep looking at the world while it is deciding
+on an action, nor need it worry about the passage of time.
+» Dynamic environments, on the other hand, are continuously asking the
+agent what it wants to do.
+◼ If it hasn’t decided yet, that counts as deciding to do nothing.
+» If the environment itself does not change with the passage of time but
+the agent’s performance score does, then we say the environment is
+semidynamic.
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Discrete (vs. continuous): A limited number of distinct,
+clearly defined percepts and actions.
+» This distinction applies to the state of the environment, to the way time
+is handled, and to the percepts and actions of the agent.
+» For example:
+◼ Chess environment has a finite number of distinct states (excluding the
+clock) and a discrete set of percepts and actions.
+◼ Taxi driving is a continuous-state and continuous-time problem: the speed
+and location of the taxi and of the other vehicles sweep through a range of
+continuous values and do so smoothly over time, and Taxi-driving actions
+are also continuous (steering angles, etc.).
+◼ Input from digital cameras is discrete, strictly speaking, but is typically
+treated as representing continuously varying intensities and locations.
+
+
+Properties of Task Environments
+◼ The task environments can be categorized according to
+number of dimensions:
+– Known (vs. unknown): The rules of the game, or
+physics/dynamics of the environment are known to the agent.
+» In a known environment, the outcomes (or outcome probabilities if the
+environment is stochastic) for all actions are given.
+» Obviously, if the environment is unknown, the agent will have to learn
+how it works in order to make good decisions.
+» The distinction between known and unknown environments is not the
+same as the one between fully and partially observable environments.
+◼ It is possible for a known environment to be partially observable—for
+example, in solitaire card games, I know the rules but am still unable to see
+the cards that have not yet been turned over.
+◼ Conversely, an unknown environment can be fully observable—in a new
+video game, the screen may show the entire game state but I still don’t
+know what the buttons do until I try them.
+
+Properties of Task Environments  check slide 28 
+◼ The hardest case is partially observable, multi-agent, stochastic, sequential, dynamic, continuous, and unknown.
+
+Structure of Agents
+◼ AI job is to design the agent program that implements
+the agent function mapping percepts to actions.
+◼ Obviously, the designed program for an agent must to
+be appropriate for that agent architecture.
+Agent = Architecture + Program
+◼ The agent architecture is some sort of computing device,
+the program run on it, with physicalsensors and actuators.
+◼ The architecture has three functions:
+1. Makes the percepts from sensors available to the program.
+2. Runs the program.
+3. Feeds the generated program’s action to the actuators.
+
+Skeleton Agent check slide 30!!
+Table-Driven Agent slide 33!!
+
+
+Skeleton Agent (cont.)
+◼ On each invocation:
+– the agent's memory is updated to reflect the new percept
+– the best action is chosen
+– the fact that the action was taken is also stored in memory
+◼ The memory persists from one invocation to the next.
+◼ It is up to the agent, if it so desires, to build up the
+percept sequence in memory.
+– In some environments, it is possible to be quite successful
+without storing the percept sequence.
+– In complex domains, it is infeasible to store the complete
+sequence.
+◼ The performance measure; not part of skeleton program;
+is applied externally to judge the behavior of the agent.
+
+Table-Driven Agent
+◼ Operates by keeping in memory its percept sequence,
+and using it to index into table, which contains the
+appropriate action for all possible percept sequences.
+◼ Why this proposal is doomed to failure?
+1. The table needed for something as simple as an agent that can only
+play chess would be about 35100 entries.
+2. The designer will take quite a long time to build the table.
+3. The agent has no autonomy at all, if the environment changed in
+some unexpected way, the agent would be lost.
+4. Even if the agent has a learning mechanism as well, to have a degree
+of autonomy, it would take forever to learn the right table entries.
+◼ AI challenge is to find out how to write a program that
+produce rational behavior from a small amount of code
+rather than from a large number of table entries.
+
+
+
+
+
+
+
+
 
 
 
