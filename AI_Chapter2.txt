@@ -328,18 +328,114 @@ all intelligence systems:
 – Goal-based agents
 – Utility-based agents
 
-Simple Reflex Agents check slide 35!!
+Simple Reflex Agents check slide 35,37!!
+Simple Reflex Agents
+◼ Simplest kind of agents.
+◼ These agents select actions on the basis of the current
+percept, ignoring the rest of the percept history.
+◼ The agent structure showing how condition-action rules
+allow making the connection from percept to action.
+◼ The agent program is very simple:
+– The INTERPRET-INPUT function generates an abstracted
+description of the current state from the percept.
+– The RULE-MATCH function returns the first rule in the set of
+rules that matches the given state description.
+◼ Work only if the environment is fully observable.
+– A little bit of observability can cause serious trouble.
 
+Model-based Reflex Agents check slide 39,40
+◼ Most effective way to handle partial observability is to
+keep track of part of the world it can not see now.
+– The agent maintains some sort of internal state that depends on
+percept history and reflects some aspects of the current state.
+◼ Two kinds of knowledge, which model the world, must
+be encoded in the agent program to update the internal
+state information:
+– First, we need some information about how the world evolves
+independently of the agent.
+– Second, we need some information about how the agent's own
+actions affect the world.
+◼ The agent structure showing how the current percept is
+combined with the old internal state to generate the
+updated description of the current state.
+◼ Details of how models and states are represented vary
+widely depending on the type of environment and the
+particular technology used in the agent design.
+◼ Regardless of the kind of representation used, it is
+seldom possible for the agent to determine exactly the
+current state of a partially observable environment.
+– For that reason, uncertainty about the current state may be
+unavoidable, but the agent still has to make a decision.
+– Therefore, the internal “state” maintained by a model-based
+agent may be not describe “what the world is like now” in a
+literal sense.
 
+Goal-based Agents check slide 43,44
+◼ Knowing about the current state of the environment is
+not always enough to decide what to do.
+– The agent needs some sort of goal information, which
+describes situations that are desirable.
+◼ The agent program can combine the goal with the model
+(same information used in the model-based reflex agent)
+in order to choose actions that achieve that goal.
+– Sometimes, goal-based action will be simple, when goal
+satisfaction results immediately from a single action.
+– Sometimes, it will be more tricky, when the agent has to
+consider many trials to find a way to achieve the goal.
+◼ Search and planning are the subfields of AI devoted to
+finding action sequences that achieve the agent’s goals.
+◼ Decision making of this kind is different from the
+condition–action rules described earlier.
+– It involves consideration of the future for both:
+» What will happen if I do such-and-such?
+» Will that make me happy?
+◼ This agent is more flexible because the knowledge that
+supports its decisions is represented explicitly and can
+be modified.
 
+Utility-based Agents  check slide 47,48
+◼ Goals alone are not really enough to generate high-
+quality behavior in most environment.
+– Goals just provide a crude binary distinction between “happy”
+and “unhappy” states.
+– Need a comparison of different world states according to
+exactly how happy they would make the agent.
+◼ Therefore, the agent wants some sort of utility function
+that internally measures its performance among different
+states of the world.
+– If the internal utility function and the external performance
+measure are in agreement
+– Then an agent that chooses actions to maximize its utility will
+be rational according to the external performance measure
+◼ In two kinds of cases, goals are inadequate but a utility-
+based agent can still make rational decisions:
+– First, when there are conflicting goals, only some of which can
+be achieved,
+» The utility function specifies the appropriate trade-off.
+– Second, when there are several goals that the agent can aim
+for, none of which can be achieved with certainty,
+» Utility provides a way in which the likelihood of success can be
+weighed up against the importance of the goals.
+◼ Technically, a rational utility-based agent chooses the
+action that maximizes the expected utility of the action
+outcomes.
 
+Learning Agents check slide 50
 
-
-
-
-
-
-
+Summary
+◼ Agents interact with environments through actuators and
+sensors.
+◼ Agent function specifies the action taken by the agent in
+response to any percept sequence.
+◼ Performance measure evaluates the environment sequence.
+◼ A rational agent maximizes expected performance.
+◼ Agent programs implement (some) agent functions.
+◼ PEAS descriptions define task environments.
+◼ Environments are categorized along several dimensions:
+– observable? deterministic? episodic? static? discrete? single-agent?
+◼ Several basic agent architectures exist:
+– simple reflex, model-based, goal-based, utility-based
+◼ All agents can improve their performance through learning.
 
 
 
