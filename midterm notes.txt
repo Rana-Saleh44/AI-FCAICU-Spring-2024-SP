@@ -1,0 +1,6 @@
+ch3 
+Problem-Solving Agents
+goal-based agents 1- Goal formulation
+                  2-Problem formulation->states & acions
+search->returns a solution in the form of an action sequence.->can be
+carried out through the execution phase.

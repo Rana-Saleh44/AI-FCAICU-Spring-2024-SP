@@ -12,10 +12,8 @@ Why Search ?
 – Theorems proving
 – Solving puzzles
 – Playing games
-◼ All AI is search!
-– Not totally true (obviously) but more true than you might think.
-– All life is problem solving !!
-– Finding a good/best solution to a problem between many possible solutions.
+◼ All AI is search!– Not totally true (obviously) but more true than you might think.
+– Finding a good/best solution
 
 Classic AI Search Problems
 ◼ Map searching (navigation)
@@ -25,7 +23,7 @@ Classic AI Search Problems
 ◼ Missionaries and cannibals
 ◼ The River Problem
 
-Map Searching (navigation)
+Map Searching (navigation)-> on of the AI classic problems
 ◼ On touring holiday in Romania; currently in Arad.
 ◼ Flight leaves tomorrow from Bucharest
 – Non-refundable ticket.
@@ -47,8 +45,7 @@ based on the currentsituation and the agent’s performance measure.
 – As well as formulating a goal, the agent may wish to decide
 on some other factors that affect the desirability of different
 ways of achieving the goal.
-◼ Problem formulation is the process of deciding what
-actions and statesto consider, given the goal formulation.
+◼ Problem formulation->actions and states
 ◼ An agent with several immediate options of unknown
 value can decide what to do by first examining different
 possible sequences of actions that lead to states of
@@ -162,19 +159,566 @@ goal state.
 simply checks whether the given state is one of them.
 » Sometimes the goal is specified by an abstract property.
 – A path cost function that assigns a numeric cost to each path.
-
 Single-state Problem Formulation check slide 20
+◼ A problem is defined by five items:
+– Initial state
+» e.g., In(Arad)
+– Actions
+» e.g., from the state In(Arad), the applicable actions are {Go(Sibiu),
+Go(Timisoara), Go(Zerind)}.
+– Transition model
+» e.g., we have RESULT(In(Arad), Go(Zerind)) = In(Zerind)
+or successor function Succ(x) = set of action–state pairs
+e.g., Succ(In(Arad)) = {<Go(Zerind), In(Zerind)>, ... }
+– Goal test
+» can be explicit, e.g., x =In(Bucharest) or implicit, e.g., Checkmate(x)
+– Path cost (additive)
+» e.g., sum of distances, number of actions executed, etc.
+
+solution-> seq of actions-> leading ->initial state -> goal state
+
+Well-defined Problems and Solutions
+◼ The initial state, actions, and transition model implicitly
+define the state space of the problem.
+– A state space is the set of all states reachable from the initial
+state by any sequence of actions.
+– A state space forms a graph (as Romania map) in which the
+nodes are states and the arcs between nodes are actions.
+– A path in the state space is a sequence of states connected by
+a sequence of actions.
+◼ The problem-solving agent chooses a cost function that
+reflects its own performance measure.
+– Assuming that the cost of a path can be described as the sum
+of the costs of the individual actions along the path.
+◼ A solution to a problem is:
+– A path from the initial state to a state that satisfies the goal
+test and its quality is measured by the path cost function.
+
+
+Selecting a State Space
+◼ Real world is absurdly complex
+– State space must be abstracted for problem solving
+– Process of removing irrelevant detail from a representation is
+called abstraction.
+◼ (Abstract) state = set of real states
+◼ (Abstract) action = complex combination of real actions
+– e.g.,
+“Arad → Zerind” represents a complex set of possible
+routes, detours, rest stops, etc.
+– For guaranteed realizability, any real state In(Arad) must
+get to some real state In(Zerind)
+◼ (Abstract) solution = set of real paths that are solutions
+in the real world
+
+EASY
+Vacuum World State Space Graph see slide 23,24
+Example: The 8-puzzle 25,26
+Example: robotic assembly 27,28
+
+Real World Problems
+◼ We have already seen how the route-finding problem
+is defined in terms of specified locations and transitions
+along links between them.
+– This problem algorithms are used in a variety of applications,
+such as in-car systems that provide driving directions, routing
+video streams in computer networks, military operations
+planning, and airline travel-planning systems.
+◼ Touring problems (as traveling salesperson problem)
+are related to route-finding problems, but with an
+important difference.
+◼ Robot navigation is a generalization of the route-
+finding problem.
+– But; rather than following a discrete set of routes, a robot can
+move in a continuous space with an infinite set of possible
+actions and states.
+◼ A VLSI layout problem requires positioning millions
+of components and connections on a chip.
+– The objectives are to minimize area, minimize circuit delays,
+and maximize manufacturing yield.
+◼ Automatic assembly sequencing of complex objects
+by a robot.
+– The aim is to find an order in which to assemble the parts of
+some object.
+– If the wrong order is chosen, there will be no way to add some
+part later in the sequence without undoing some of the work
+already done.
+◼ Another important assembly problem is protein design
+– The goal is to find a sequence of amino acids that will fold
+into a three-dimensional protein with the right properties to
+cure some disease.
+
+Searching for Solutions
+◼ The search process can be seen as building up a search
+tree that is applied to search nodes over the state space.
+– The root of the tree is a node corresponding to the initial state;
+the branches are actions and the nodes correspond to states in
+the state space of the problem.
+– At each step, testing whether the current state a goal state.
+– If it is not, expanding the current state; by applying each legal
+action, to generate a new set of states.
+– Selecting one state from the set of generated states to be the
+current state and putting others aside for later, in case the
+selected state does not lead to a solution.
+– Continue testing, expanding, and selecting until either a
+solution is found or there are no more states to expand.
+is called the frontier. <-!!!!!!!!!!!!!!!
+◼ The choice of which state to expand first is determined
+by the search strategy of each search algorithm.
+
+
+Partial Search Tree for Finding a Route From Arad to Bucharest 32-34
+Initial Description of Tree-search Algorithm 35
+
+Avoiding Repeated States
+◼ Possibility of wasting time by expanding repeated states
+that have already been encountered and expanded before
+by loopy paths.
+– For some problems, this possibility never comes up.
+» The state space is a tree and there is only one path to each state.
+– For other problems, repeated states are unavoidable.
+» This includes all problems where the operators are reversible.
+◼ Search trees for repeated states problems are infinite.
+– But, some of its repeated states can be pruned to make the
+search tree down to finite size.
+◼ Repeated states can cause a solvable problem to become
+unsolvable if the search algorithm does not detect them.
+◼ Loopy paths are a special case of the more general
+concept of redundant paths, which exist when there is
+more than one way to get from one state to another.
+– If we are concerned about reaching the goal, there’s never
+any reason to keep more than one path to any given state.
+◼ The way to avoid exploring redundant paths is to
+remember where one has been.
+– To do this, we enhance the TREE-SEARCH algorithm with a
+data structure called the explored set (also known as the
+closed list), which remembers every expanded node.
+– Newly generated nodes that match previously generated
+nodes can be discarded instead of being added to the frontier.
+◼ The new algorithm is called GRAPH-SEARCH and it is
+more efficient on problems with many repeated states.
+
+
+Initial Description of Graph-search Algorithm 38
+
+State Space vs. Search Tree 40
+◼ Essential to distinguish between the state space and the
+search tree.
+◼ Important to remember the difference between the nodes
+and the states.
+– A node is a bookkeeping data structure used to represent the
+search tree.
+– A state corresponding to a configuration of the world.
+◼ Thus, nodes are on particular paths, whereasstates do not.
+– Two different nodes can contain the same world state, if that
+state is generated via two different search paths.
+◼ Need to represent the collection of nodes that have been
+generated but not yet expanded (called the frontier).
+
+
+Needed Data Structures
+◼ Search algorithms require a data structure to keep track
+of the search tree that is being constructed.
+◼ For each node of the tree, we have a structure that
+contains four components:
+– State: the state in the state space to which the node corresponds
+– Parent: the node in the search tree that generated this node
+– Action: the action that was applied to generate the node
+– Path-cost: the cost of the path from the initialstate to the node
+◼ The frontier needs to be stored in such a way that the
+search algorithm can easily choose the next node to
+expand according to its preferred strategy.
+– The appropriate data structure for this is a priority queue.
+
+
+Search Strategies
+◼ A search strategy is defined by the order of node expansion.
+◼ Strategies are evaluated along the following dimensions:
+– Completeness: is the strategy guaranteed to find a solution
+when there is one?
+– Optimality: does the strategy always find a least-costsolution?
+– Time complexity: how long does it take to find a solution?
+– Space complexity: how much memory is needed to perform
+the search?
+◼ Time and space complexity are measured in terms of:
+– b: maximum branching factor of the search tree.
+– d: depth of the least-cost solution (shallowest goal node).
+– m: maximum length of any path in the state space (may be ∞).
+
+Search Strategies
+◼ Uninformed (Blind) search:
+– The search does not have additional information about states
+beyond that provided in the problem definition.
+– Include: breadth-first, uniform-cost, depth-first, depth limited,
+iterative deepening, and bidirectional search
+◼ Informed (Heuristic) search:
+– The search is guided by an evaluation function:
+– Include: Greedy best-first, A*, IDA*, and beam search
+◼ Optimization
+– The search is to find an optimal value of an objective function
+– Include: Hill climbing, simulated annealing, genetic algorithms,
+Ant Colony Optimization
+◼ Game playing
+– An adversarial search: Mini-max algorithm, alpha-beta pruning
+
+Uninformed (Blind) Search Strategies
+◼ They have no additional information about states beyond
+that provided in the problem definition.
+– All they can do is generate successors and distinguish a goal
+state from a non-goal state.
+– All they are distinguished by the order in which nodes are
+expanded.
+◼ The six uninformed search strategies are:
+– Breadth-first search
+– Uniform-cost search
+– Depth-first search
+– Depth-limited search
+– Iterative deepening search
+– Bidirectional search
+
+
+Breadth-first Search (BFS) 46-50
+◼ The root node is expanded first, then all the successors
+ofthe root node are expanded next, then their successors,
+and so on.
+– In general, all the nodes at depth d in the search tree are
+expanded before the nodes at depth d + 1.
+◼ An instance of the GRAPH-SEARCH algorithm in which
+the shallowest unexpanded node is chosen for expansion.
+– The nodes that are visited first will be expanded first.
+– This is achieved simply by using a FIFO queue for the frontier.
+– Thus, new nodes go to the back of the queue, and old nodes,
+which are shallower than the new nodes, get expanded first.
+◼ BFS is complete:
+– If there is a solution, BFS is guaranteed to find it.
+– If there are several solutions, BFS will always find the
+shallowest goal state (shortest path) first.
+◼ BFS is optimal given the path cost is a non-decreasing
+function of the depth of the node.
+◼ Time complexity of BFS is:
+1 + b + b^2 + b^3 +... + b^d = O(b^d)
+◼ Space complexity of BFS is also O(b^d)
+– Because every generated node must remain in memory.
+◼ The memory requirements are a bigger problem than
+the execution time.
+
+Time and Memory Requirements for BFS 52
+
+Uniform-cost Search (UCS) 54-61
+◼ BFS finds the shallowest goal state, but this may not
+the least-cost solution for a general path cost function.
+◼ Instead of expanding the shallowest node, UCS expands
+the node n with the lowest path cost g(n).
+– Done by storing the frontier as a priority queue ordered by g.
+◼ Note: if all step costs are equal, UCS is identical to BFS.
+◼ The cost of a path must never decrease as we go along
+the path.
+– If every step has a nonnegative cost, then the cost of a path
+can never decrease as we go along the path, and can find the
+cheapest path without exploring the whole search tree.
+◼ Guarantee first founded solution isthe cheapestsolution.
+◼ Complete? Yes.
+◼ Optimal? Yes
+– Whenever UCS selects a node for expansion, the optimal
+path to that node has been found.
+– Because step costs are non-negative, paths never get shorter
+as nodes are added.
+– Hence, the first goal node selected for expansion must be the
+optimal solution.
+◼ Time Complexity: O(b^d+1)
+◼ Space Complexity: O(b^d+1)
+– Because UCS can explore large trees of small steps before
+exploring paths involving large and perhaps useful steps.
+
+
+Depth-first Search (DFS) 64-75
+◼ Always expands the deepest node in the current frontier
+of the search tree.
+– The search proceeds immediately to the deepest level of the
+search tree, where the nodes have no successors.
+– As those nodes are expanded, they are dropped from the
+frontier, so then the search “backs up” to the next deepest
+node that still has unexplored successors.
+– Backtracks if search hits a dead-end (a non-goal node with no
+expansion).
+◼ An instance of the GRAPH-SEARCH algorithm in which
+the frontier is implemented by using a LIFO stack.
+– The nodes that are visited last will be expanded first.
+◼ DFS is incomplete:
+– In tree-search version, it can make a wrong choice if left
+subtree were of unbounded depth but contained no solutions,
+it would never terminate.
+– But, the graph-search version, which avoids repeated states
+and redundant paths, is complete only in finite state spaces.
+◼ DFS is not optimal:
+– It will explore the entire left subtree even if a goal node near
+the root.
+◼ Time complexity of DFS is O(b^m) in worst case.
+– But if solutions are dense, may be much faster than BFS.
+◼ Space complexity of DFS is O(bm), i.e., linear space!
+– It needs to store only a single path from the root to a leaf
+node, along with the remaining unexpanded sibling nodes for
+each node on the path.
+
+
+Depth-limited Search (DLS)
+◼ Alleviate the problem of DFS in infinite state spaces by
+supplying it with a predetermined depth limit l.
+– Nodes at depth l are treated as if they have no successors.
+◼ DLS can be implemented as a simple modification to
+the general tree- or graph-search algorithm; or instead
+implemented as a simple recursive algorithm.
+– It can terminate with two kinds of failure: standard failure or
+the cutoff value indicate no solution within the depth limit.
+◼ DLS is incomplete when the shallowest goal is beyond
+the depth limit (l < d).
+◼ DLS also is not optimal if l > d.
+◼ Time complexity of DLS is O(b^l) in worst case.
+◼ Space complexity of DLS is O(bl).
+
+
+Recursive Depth-limited Search 78
+
+Iterative Deepening Search (IDS) 79-83
+◼ Applies DLS repeatedly with increasing depth and
+terminates when a solution is found or no solutions exists.
+– Occur when the depth limit reaches d, the depth of the
+shallowest goal node.
+◼ Combines the benefits of BFS and DFS:
+– Like BFS, it is complete when the branching factor is finite.
+– Like DFS, the memory requirements are very reasonable.
+◼ Seem wasteful - many states are expanded multiple times.
+– Almost all of the nodes are in the bottom level, so it does not
+matter much that the upper levels are expanded multiple times.
+◼ IDS is complete:
+– If there is a solution, IDS is guaranteed to find it.
+– If there are several solutions, IDS will always find the
+shallowest goal state (shortest path) first.
+◼ IDS is optimal given the path cost is a non-decreasing
+function of the depth of the node.
+◼ Time complexity of IDS is O(b^d).
+◼ Space complexity of IDS is O(bd).
+◼ In general, IDS is the preferred uninformed search
+method when the search space is large and the depth of
+solution is not known.
+
+Bi-directional Search (BDS) 86
+◼ Run two simultaneous search:
+– One forward from the initial state and the other backward
+from the goal.
+– Hoping that the two searches meet in the middle.
+◼ Motivation: b^(d/2) + b^(d/2) is much less than b^d
+◼ Implemented by replacing the goal test with a check to
+see whether the frontiers of the two searches intersect
+– If the intersection exist then a solution has been found.
+◼ How do backward search? (using predecessorsfunction).
+– The predecessors of a state x to be all those states that have x
+as a successor.
+◼ BDS is complete and optimal:
+– If both searches are BFS.
+– Other search combinations may lose completeness or
+optimality.
+◼ Time complexity of BDS is O(b^(d/2)).
+◼ Space complexity of BDS is O(b^(d/2)):
+– At least one of the frontiers must be kept in memory so that
+the intersection check can be done.
+◼ What kind of search is going in each half?
 
 
 
+important see 88 Comparison of Uninformed Search Strategies
+
+Informed (Heuristic) Search Strategies
+◼ An informed search strategy can find solutions more
+efficiently than an uninformed strategy.
+– Use problem-specific knowledge beyond the definition of the
+problem itself
+– The search cost may be cut considerably if search is more
+goal-directed.
+– Goal-directedness is typically provided by an evaluation
+function that assigns a number to each node indicating how
+the node is closer to the goal.
+◼ The general approach we consider is called best-first
+search.
+– An instance of the general TREE-SEARCH or GRAPH-SEARCH
+algorithm in which a node is selected for expansion based on
+an evaluation function, f(n).
 
 
+Best-first Search
+◼ A class of search strategies that expands nodes in order
+of desirability as indicated by some evaluation function.
+– The evaluation function is construed as a cost estimate, so the
+node with the lowest evaluation is expanded first.
+– Identical to that for uniform-cost search, except for the use of
+f instead of g to order the priority queue.
+◼ The choice of f determines the search strategy.
+– Most best-first algorithms include as a component of f a
+heuristic function, denoted h(n):
+h(n) = estimated cost of the cheapest path from the state at node n to a
+goal state.
+h(n) = 0 if n is represent a goal state.
+◼ Heuristic functions are the most common form in
+which additional knowledge of the problem is reported
+to the search algorithm.
 
 
+Greedy Best-first Search
+Try to expand the node that is closest to the goal, on
+the base that this is likely to lead to a solution quickly.
+– Evaluate nodes by using just the heuristic function:
+f(n) = h(n)
+– Select the node that appears to be closest to goal among all
+possible choices.
+◼ Need to choose a particular problem, because heuristic
+functions are problem-specific.
+– For route-finding problem in Romania; we use the straight-
+line distance (SLD) heuristic:
+hSLD{the SLD small and under}(n) = straight-line distance from n to Bucharest
 
 
+Romania with Straight-line distance to Bucharest 92
+
+Greedy Best-first Search for Bucharest 93-96
+◼ hSLD heuristic leads to minimal search cost:
+– It finds a solution without ever expanding a node that is
+not on the solution path.
+◼ However, heuristic is not optimal:
+– The path it found via Sibiu and Fagaras to Bucharest is 32
+kilometers longer than the path through Rimnicu Vilcea and
+Pitesti.
+◼ This strategy prefers to take the biggest bite possible
+out of the remaining cost to reach the goal, without
+worrying about whether this will be best in the long run.
+hence the name "Greedy Search"
+◼ Greedy search looks like DFS in the way it prefers to
+follow a single path all the way to the goal, but suffers
+from the same defects.
+– It is not optimal.
+– It is incomplete without systematic checking of repeated
+states.
+» Can start down an infinite path and neverreturn to try other possibilities.
+– Time and Space Complexity are O(b^m) in the worst case
+» Where b is the branching factor and m is the maximum path length.
+◼ With a good heuristic function, the space and time
+complexity can be reduced substantially.
+– Amount of reduction depends on the particular problem and
+quality of the heuristic function.
 
 
+A*(A Star) Search 100-106
+◼ Greedy Search (GS) minimizes a heuristic h(n) which
+is an estimated cost from a node n to the goal state.
+– GS is efficient but not optimal and incomplete.
+◼ Uniform Cost Search (UCS) minimizes the actual cost
+g(n) from the initial state to n.
+– UCS is optimal and complete but not efficient.
+◼ A* search combine GS and UCS to get an efficient
+algorithm which is complete and optimal.
+Evaluation function ƒ(n) = g(n) + h(n)
+where: g(n) = exact cost to reach the node n
+h(n) = estimated cost from the node n to goal
+ƒ(n) = estimated total cost of path through n to goal
+
+Conditions for Optimality 108
+◼ 1st condition: we require for optimality is that h(n) be
+an admissible heuristic.
+– An admissible heuristic is one never overestimates the cost to
+reach the goal.
+– A heuristic h(n) is admissible if for every node n: h(n) ≤ h*(n)
+where h*(n) is the actual cost to reach the goal state from n.
+◼ An admissible heuristic is optimistic
+– Because it think the cost of solving the problem is less than it
+actually is.
+– Such that g(n) is the actual cost to reach n then f(n) never
+overestimates the total true cost of a solution along the
+current path through n.
+– Example: hSLD(n) never overestimates the actual road distance.
+◼ Theorem: If h(n) is admissible, A* using TREE-SEARCH
+is optimal.
+◼ 2nd condition: required only for applications of A∗ to
+graph search is called consistency (or monotonicity).
+– A heuristic is consistent (monotonic) if for every node n,
+every successor n' of n generated by any action a:
+h(n) ≤ c(n,a,n') + h(n')
+◼ It is easy to show that every consistent
+heuristic is also admissible.
+– Consistency is a stricter requirement than admissibility.
+– Example: hSLD is a consistent heuristic (general triangle
+inequality is satisfied when each side is measured by the
+straight-line distance).
+◼ Theorem: If h(n) is consistent, A* using GRAPH-
+SEARCH is optimal.
+
+Properties of A*
+◼ Optimal? Yes
+– A∗ is optimally efficient for any given consistent heuristic.
+– No other optimal algorithm is guaranteed to expand fewer
+nodes than A∗
+◼ Complete? Yes
+– Unless there are infinitely many nodes with f ≤ f(G).
+◼ Time complexity? Exponential
+◼ Space complexity? Keeps all expanded nodesin memory
+
+Iterative Deepening A∗ (IDA∗)
+◼ Simplest way to reduce memory requirements for A∗
+is to adapt the idea of iterative deepening to the
+heuristic search context.
+– Main difference between IDA∗ and standard IDS is that the
+cut-off used is the f-cost (g + h) rather than the depth.
+– At each iteration, the cut-off value is smallest f-cost of any
+node that exceeded the cut-off on the previous iteration.
+◼ IDA∗ is practical for many problems with unit step
+costs and avoids the substantial overhead associated
+with keeping a sorted queue of nodes.
+◼ But, IDA∗ suffers from the same difficulties with real
+valued costs as does the iterative version of uniform-
+cost search.
+
+Recursive Best-First Search (RBFS)
+◼ A simple recursive algorithm that attempts to simulate
+the operation of standard best-first search, but using
+only linear space.
+– Its structure is similar to that of a recursive DFS, but it uses
+the f-limit variable to keep track of the f-value of the best
+alternative path available from any ancestor of current node.
+– If the current node exceeds this limit, the recursion returns
+back to the alternative path.
+– As the recursion returns, RBFS replaces the f-value of each
+node along the path with the best f-value of its children.
+– In this way, RBFS remembers the f-value of the best leaf in
+the forgotten subtree and can therefore decide whether it’s
+worth reexpanding the subtree at some later time.
+◼ RBFS is somewhat more efficient than IDA∗
+, but still suffers from excessive node regeneration.
+– The mind can change because every time the current best
+path is extended, its f-value is likely to increase.
+– When this happens, the second-best path might become the
+best path, so the search has to backtrack to follow it.
+◼ RBFS is an optimal algorithm if the heuristic function
+h(n) is admissible.
+◼ Its space complexity is linear in the depth of the
+deepest optimal solution.
+◼ Its time complexity depends both on the accuracy of
+the heuristic function and on how often the best path
+changes as nodes are expanded.
+
+IMPORTANT
+Admissible Heuristics 113-114
+Dominance Heuristics  115
+Comparison of Search Costs for IDS and A∗ Algorithms with h1, h2 116
 
 
-
+Relaxed Problems
+◼ h1 and h2 are estimates of the remaining path length
+for the 8-puzzle, but they are also perfectly accurate
+path lengths for simplified versions of the puzzle.
+– If the rules of the 8-puzzle are relaxed so that a tile can
+move anywhere, then h1(n) gives the shortest solution.
+– If the rules are relaxed so that a tile can move to any
+adjacent square, then h2(n) gives the shortest solution.
+◼ A problem with fewer restrictions on the actions is
+called a relaxed problem.
+– The state space graph of the relaxed problem is a
+supergraph of the original state space.
+◼ The cost of an optimal solution to a relaxed problem
+is an admissible heuristic for the original problem.
