@@ -127,13 +127,7 @@ Properties of Task Environments
 – Single agent (vs. multi-agent): An agent operating by itself in an environment.
 – Deterministic (vs. stochastic): Next state of the environment is completely determined by the current state and the action executed by the agent.
 – Episodic (vs. sequential): In an episodic task environment, the agent's experience is divided into atomic episodes – each episode consists of the agent percept and then performing a single action.
-
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
-– Dynamic vs. static: If the environment can change while an
-agent is deliberating, then we say the environment is dynamic
-for that agent; otherwise, it is static.
+– Dynamic vs. static: If the environment can change while an agent is deliberating.
 – Discrete (vs. continuous): A limited number of distinct,
 clearly defined percepts and actions.
 – Known (vs. unknown): The rules of the game, or
@@ -142,26 +136,12 @@ physics/dynamics of the environment are known to the agent.
 the appropriate agent design and the applicable technique
 for agent implementation.
 
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
-– Fully observable (vs. partially observable): An agent's sensors
-give it access to the complete state of the environment at each
-point in time.
-» A task environment is effectively fully observable if the sensors detect
-all aspects that are relevant (depends on the performance measure) to
-the choice of action.
-» Fully observable environments are convenient because the agent need
-not maintain any internal state to keep track of the world.
-» An environment might be partially observable because of noisy and
-inaccurate sensors or because parts of the state are simply missing from
-the sensor data:
+– Fully observable (vs. partially observable):
+» A task environment is effectively fully observable if the sensors detect all aspects that are relevant (depends on the performance measure) to the choice of action.
+» Fully observable environments are convenient because the agent need not maintain any internal state to keep track of the world.
+» An environment might be partially observable because of noisy and inaccurate sensors or because parts of the state are simply missing from the sensor data:
 » If the agent has no sensors at all then the environment is unobservable.
 
-
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
 – Single agent (vs. multi-agent): An agent operating by itself in
 an environment.
 » For example, an agent solving a crossword puzzle by itself is clearly in
