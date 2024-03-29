@@ -106,11 +106,8 @@ Properties of Task Environments
 – Dynamic vs. static: If the environment can change while an agent is deliberating.
 – Discrete (vs. continuous): A limited number of distinct,
 clearly defined percepts and actions.
-– Known (vs. unknown): The rules of the game, or
-physics/dynamics of the environment are known to the agent.
-◼ These properties of various task environments determine
-the appropriate agent design and the applicable technique
-for agent implementation.
+– Known (vs. unknown): The rules of the game, or physics/dynamics of the environment are known to the agent.
+◼ These properties of various task environments determine the appropriate agent design and the applicable technique for agent implementation.
 
 – Fully observable (vs. partially observable):
 » A task environment is effectively fully observable if the sensors detect all aspects that are relevant (depends on the performance measure) to the choice of action.
@@ -118,99 +115,45 @@ for agent implementation.
 » An environment might be partially observable because of noisy and inaccurate sensors or because parts of the state are simply missing from the sensor data:
 » If the agent has no sensors at all then the environment is unobservable.
 
-– Single agent (vs. multi-agent): An agent operating by itself in
-an environment.
-» For example, an agent solving a crossword puzzle by itself is clearly in
-a single-agent environment, whereas an agent playing chess is in a two-
-agent environment.
+– Single agent (vs. multi-agent): An agent operating by itself in an environment.
+» For example, an agent solving a crossword puzzle by itself is clearly in a single-agent environment, whereas an agent playing chess is in a two-agent environment.
 » Chess is a competitive multi-agent environment.
-◼ In chess, the opponent entity B is trying to maximize its performance
-measure, which, by the rules of chess, minimizes agent A’s performance
-measure.
-» In the taxi-driving environment, on the other hand, avoiding collisions
-maximizes the performance measure of all agents, so it is a partially
-cooperative multi-agent environment.
+◼ In chess, the opponent entity B is trying to maximize its performance measure, which, by the rules of chess, minimizes agent A’s performance measure.
+» In the taxi-driving environment, on the other hand, avoiding collisions maximizes the performance measure of all agents, so it is a partially cooperative multi-agent environment.
 
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
-– Episodic (vs. sequential): In an episodic task environment, the
-agent's experience is divided into atomic episodes – each
-episode consists of the agent percept and then performing a
-single action.
+– Episodic (vs. sequential): 
 » Choice of action in each episode depends only on the episode itself.
 ◼ Next episode does not depend on the actions taken in previous episodes.
-» In sequential environments, the current decision could affect all future
-decisions.
-◼ Chess and taxi driving are sequential: in both cases, short-term actions can have
-long-term consequences.
-» Episodic environments are much simpler than sequential environments
-because the agent does not need to think ahead.
+» In sequential environments, the current decision could affect all future decisions.
+◼ Chess and taxi driving are sequential: in both cases, short-term actions can have long-term consequences.
+» Episodic environments are much simpler than sequential environments because the agent does not need to think ahead.
 
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
-– Deterministic (vs. stochastic): Next state of the environment
-is completely determined by the current state and the action
-executed by the agent.
-» In principle, an agent need not worry about uncertainty in a fully
-observable, deterministic environment.
-◼ If the environment is deterministic except for the actions of other agents; in
-a multi-agent environment, then the environment is strategic.
-◼ Thus, a game can be deterministic even though each agent may be unable
-to predict the actions of the others.
-» If the environment is partially observable, however, then it could
-appear to be stochastic.
-◼ Most real situations are so complex that it is impossible to keep track of all
-the unobserved aspects; therefore, they must be treated as stochastic.
-» It is often better to think of an environment as deterministic or stochastic
-from the point of view of the agent.
+– Deterministic (vs. stochastic):
+» In principle, an agent need not worry about uncertainty in a fully observable, deterministic environment.
+◼ If the environment is deterministic except for the actions of other agents; in a multi-agent environment, then the environment is strategic.
+◼ Thus, a game can be deterministic even though each agent may be unable to predict the actions of the others.
+» If the environment is partially observable, however, then it could appear to be stochastic.
+◼ Most real situations are so complex that it is impossible to keep track of all the unobserved aspects; therefore, they must be treated as stochastic.
+» It is often better to think of an environment as deterministic or stochastic from the point of view of the agent.
 
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
-– Dynamic vs. static: If the environment can change while an
-agent is deliberating, then we say the environment is dynamic
-for that agent; otherwise, it is static.
+– Dynamic vs. static:
 » Static environments are easy to deal with.
-◼ Because the agent need not keep looking at the world while it is deciding
-on an action, nor need it worry about the passage of time.
-» Dynamic environments, on the other hand, are continuously asking the
-agent what it wants to do.
+◼ Because the agent need not keep looking at the world while it is deciding on an action, nor need it worry about the passage of time.
+» Dynamic environments, on the other hand, are continuously asking the agent what it wants to do.
 ◼ If it hasn’t decided yet, that counts as deciding to do nothing.
-» If the environment itself does not change with the passage of time but
-the agent’s performance score does, then we say the environment is
-semidynamic.
+» If the environment itself does not change with the passage of time but the agent’s performance score does, then we say the environment is semidynamic.
 
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
-– Discrete (vs. continuous): A limited number of distinct,
-clearly defined percepts and actions.
-» This distinction applies to the state of the environment, to the way time
-is handled, and to the percepts and actions of the agent.
+– Discrete (vs. continuous):
+» This distinction applies to the state of the environment, to the way time is handled, and to the percepts and actions of the agent.
 » For example:
-◼ Chess environment has a finite number of distinct states (excluding the
-clock) and a discrete set of percepts and actions.
-◼ Taxi driving is a continuous-state and continuous-time problem: the speed
-and location of the taxi and of the other vehicles sweep through a range of
-continuous values and do so smoothly over time, and Taxi-driving actions
-are also continuous (steering angles, etc.).
-◼ Input from digital cameras is discrete, strictly speaking, but is typically
-treated as representing continuously varying intensities and locations.
+◼ Chess environment has a finite number of distinct states (excluding the clock) and a discrete set of percepts and actions.
+◼ Taxi driving is a continuous-state and continuous-time problem: the speed and location of the taxi and of the other vehicles sweep through a range of continuous values and do so smoothly over time, and Taxi-driving actions are also continuous (steering angles, etc.).
+◼ Input from digital cameras is discrete, strictly speaking, but is typically treated as representing continuously varying intensities and locations.
 
-
-Properties of Task Environments
-◼ The task environments can be categorized according to
-number of dimensions:
-– Known (vs. unknown): The rules of the game, or
-physics/dynamics of the environment are known to the agent.
-» In a known environment, the outcomes (or outcome probabilities if the
-environment is stochastic) for all actions are given.
-» Obviously, if the environment is unknown, the agent will have to learn
-how it works in order to make good decisions.
-» The distinction between known and unknown environments is not the
-same as the one between fully and partially observable environments.
+– Known (vs. unknown):
+» In a known environment, the outcomes (or outcome probabilities if the environment is stochastic) for all actions are given.
+» Obviously, if the environment is unknown, the agent will have to learn how it works in order to make good decisions.
+» The distinction between known and unknown environments is not the same as the one between fully and partially observable environments.
 ◼ It is possible for a known environment to be partially observable—for
 example, in solitaire card games, I know the rules but am still unable to see
 the cards that have not yet been turned over.
