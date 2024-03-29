@@ -262,7 +262,7 @@ high experience high performane
 Learning Agents check slide 50 
 performance elem.->agent
 +
-feedback of the action->internal evaluting da 8er external observing 
+feedback of the action->internal evaluting da 8er external observer
 
 Summary
 ◼ Agents interact with environments through actuators and sensors.
