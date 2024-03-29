@@ -184,10 +184,10 @@ Skeleton Agent "general structure of the agent"
 – In complex domains, it is infeasible to store the complete sequence.
 ◼ The performance measure; not part of skeleton program; is applied {externally} to judge the behavior of the agent. momkn ykoun fe tkyem da5lly lnfsh 34an y7sn mn performance.
 
-Table-Driven Agent
-◼ Operates by keeping in memory its percept sequence, and using it to index into table, which contains the appropriate action for all possible percept sequences.
+Table-Driven Agent {1st idea}
+◼ Operates by keeping in memory its percept sequence->index into table, which contains the appropriate action for all possible percept sequences.
 ◼ Why this proposal is doomed to failure?
-1. The table needed for something as simple as an agent that can only play chess would be about 35100 entries.
+1. The table needed for something as {simple, little num of percepts and actions} as an agent that can only play chess{35^100} would be about 35100 entries.
 2. The designer will take quite a long time to build the table.
 3. The agent has no autonomy at all, if the environment changed in some unexpected way, the agent would be lost.
 4. Even if the agent has a learning mechanism as well, to have a degree of autonomy, it would take forever to learn the right table entries.
