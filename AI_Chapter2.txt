@@ -161,6 +161,7 @@ Properties of Task Environments  check slide 28
 ◼ The hardest case is partially observable, multi-agent, stochastic, sequential, dynamic, continuous, and unknown.
 
 Structure of Agents
+AI job in the program not the architecture and the architecture affect the program.
 ◼ Obviously, the designed program for an agent must to be appropriate for that agent architecture.
                 Agent = Architecture + Program
 ◼ The agent architecture->computing device, the program run on it, with physicalsensors and actuators.
@@ -172,7 +173,7 @@ Structure of Agents
 Skeleton Agent check slide 30!!
 Table-Driven Agent slide 33!!
 
-Skeleton Agent
+Skeleton Agent "general structure of the agent"
 ◼ On each invocation:
 – the agent's memory is updated to reflect the new percept
 – the best action is chosen
@@ -181,7 +182,7 @@ Skeleton Agent
 ◼ It is up to the agent, if it so desires, to build up the percept sequence in memory.
 – In some environments, it is possible to be quite successful without storing the percept sequence.
 – In complex domains, it is infeasible to store the complete sequence.
-◼ The performance measure; not part of skeleton program; is applied externally to judge the behavior of the agent.
+◼ The performance measure; not part of skeleton program; is applied {externally} to judge the behavior of the agent. momkn ykoun fe tkyem da5lly lnfsh 34an y7sn mn performance.
 
 Table-Driven Agent
 ◼ Operates by keeping in memory its percept sequence, and using it to index into table, which contains the appropriate action for all possible percept sequences.
