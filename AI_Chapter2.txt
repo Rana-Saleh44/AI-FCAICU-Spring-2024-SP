@@ -199,8 +199,8 @@ Agent Program
 – Simple reflex agents->fully obserable
 – Model-based reflex agents-> partially observable-> it must have a model
 both the previous there are uncertainty and only the reflex there are no goal that it want to achieve.
-– Goal-based agents->
-– Utility-based agents
+– Goal-based agents-> goal
+– Utility-based agents-> technique mda 2rbouh aw b3douh mn el goal. "heurestic search"
 
 reflex->automatic reaction..like pulling your hand away from something hot without thinking about it.
 current percepts->multiple sensors
@@ -230,12 +230,13 @@ Model-based Reflex Agents check slide 39,40
 environment evolve POINT!!????
 
 Goal-based Agents check slide 43,44   {the additional of the previous agent is that +goal to the model  & the decesion is different}
+many rule match I'll choose that'll achieve the goal.
 ◼ Knowing about the {current state} of the environment is {not always enough} to decide what to do.
 – The agent needs some sort of goal information, which describes situations that are desirable.
 ◼ The agent program can combine the "goal with the model" (same information used in the model-based reflex agent) in order to choose actions that achieve that goal.
 – {Sometimes}, goal-based action will be simple, when goal satisfaction results immediately from a single action.
 – {Sometimes}, it will be more tricky, when the agent has to consider many trials to find a way to achieve the goal.
-◼ Search and planning are the subfields of AI devoted to finding action sequences that achieve the agent’s goals.
+◼ Search and planning {if the environment is determintistic,static}are the subfields of AI devoted to finding action sequences that achieve the agent’s goals.
 ◼{{ Decision making of this kind is different from the condition–action rules described earlier.}}
 – It involves consideration of the future for both:
 » What will happen if I do such-and-such?
