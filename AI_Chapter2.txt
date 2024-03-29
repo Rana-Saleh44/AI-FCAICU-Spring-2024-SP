@@ -251,13 +251,18 @@ Utility-based Agents  check slide 47,48
 –> If the internal utility function and the external performance measure are in agreement
 – Then an agent that chooses actions to maximize its utility will be rational according to the external performance measure
 ◼ In two kinds of cases, goals are inadequate{insufficient or not enough} but a utility-based agent can still make rational decisions:
-– First, when there are conflicting goals, only some of which can be achieved,
+– First, when there are {conflicting goals}, only some of which can be achieved,
 » The utility function specifies the appropriate trade-off.
-– Second, when there are several goals that the agent can aim for, none of which can be achieved with certainty,
+– Second, when there are {several goals} that the agent can aim for, none of which can be achieved with certainty,
 » Utility provides a way in which the likelihood of {success can be weighed up against the importance of the goals.}
-◼ Technically, a rational utility-based agent chooses the action that maximizes the expected utility of the action outcomes.
+◼ Technically, a rational utility-based agent chooses the action that maximizes the {expected utility} of the action outcomes.
+it is also heuristic there are some sort of unceertainty
+high experience high performane 
 
-Learning Agents check slide 50
+Learning Agents check slide 50 
+performance elem.->agent
++
+feedback of the action->internal evaluting da 8er external observing 
 
 Summary
 ◼ Agents interact with environments through actuators and sensors.
