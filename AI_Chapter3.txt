@@ -3,11 +3,11 @@ Solving Problems by Searching
 ◼ Problem-solving agents
 ◼ Problem types
 ◼ Problem formulation
-◼ Uninformed (Blind) search
+◼ Uninformed (Blind) search-> there is no info to guid the search
 ◼ Informed (Heuristic) search
 
 Why Search ?
-◼ Early AI
+◼ Early AI mainly towards
 – Theorems proving
 – Solving puzzles
 – Playing games
@@ -17,15 +17,13 @@ Why Search ?
 Classic AI Search Problems
 ◼ Map searching (navigation)
 ◼ 6*3*3 Rubik’s Cube
-◼ 8-Puzzle
-◼ N-Queens
-◼ Missionaries and cannibals
+◼ 8-Puzzle-> num.s
+◼ N-Queens-> how to organize the queens such there are no 2 queens in the same row or col or diagonal.
+◼ Missionaries and cannibals :)
 ◼ The River Problem
 
-Map Searching (navigation)-> on of the AI classic problems
-◼ On touring holiday in Romania; currently in Arad.
-◼ Flight leaves tomorrow from Bucharest
-– Non-refundable ticket.
+Map Searching (navigation)-> on of the AI classic problems   {two points and I have multiple path which one I'll choose}
+Arad-> Bucharest
 ◼ Formulate goal:
 – be in Bucharest on time
 ◼ Formulate problem:
@@ -34,43 +32,47 @@ Map Searching (navigation)-> on of the AI classic problems
 ◼ Find solution (action sequences):
 – sequence of cities, e.g., Arad, Sibiu, Fagaras, Bucharest
 
-Problem-Solving Agents check slide 8
-◼ A kind of goal-based agents that decide what to do by finding sequences of actions that lead to desirable states.
+Problem-Solving Agents check slide 8 {I'll see if I'll use goal based or utility based}
+◼ A kind of {goal-based agents}-> by finding sequences of actions that lead to desirable states.
 ◼ Goals help to organize behavior by limiting the objectives that the agent is trying to achieve.
-◼ Goal formulation is the first step in problem solving, based on the currentsituation and the agent’s performance measure.
-– As well as formulating a goal, the agent may wish to decide on some other factors that affect the desirability of different ways of achieving the goal.
-◼ Problem formulation->actions and states
-◼ An agent with several immediate options of unknown value can decide what to do by first examining different possible sequences of actions that lead to states of known value, and then choosing the best sequences.
-– This process of looking for such a sequence is called search.
+◼ {Goal formulation} is the first step in problem solving, based on the current situation and the agent’s performance measure.
+– As well as formulating a goal, the agent may wish to decide on some {other factors} that affect the desirability of different ways of achieving the goal.
+◼ {Problem formulation}->actions and states "what are the restriction like time and so on"
+◼ An agent with {several} immediate options of unknown value can decide what to do by first examining different possible sequences of actions that lead to states of known value, and then choosing the {best sequences}.
+– This process of looking for such a sequence is called {search}.
 – A search algorithm takes a problem as input and returns a solution in the form of an action sequence.
-– Once a solution is found, the actions it recommends can be carried out through the execution phase.
+– Once a solution is found, the actions it recommends can be carried out through the {execution phase}.
 ◼ Thus, the agent design is simply consists of “formulate, search, execute” phases.
 – Once the solution has been executed, the agent will formulate a new goal.
+Problem-Solving Agents  slide 8
 ◼ The agent design assumes that:
-– The environment is static, because formulating and solving the problem is done without paying attention to any changes that might be occurring in the environment.
-– The initial state is known; knowing it is easiest if the environment is observable.
-– The environment can be viewed as discrete to allow enumerating “alternative courses of action”.
-– Finally and most importantly, the environment is deterministic.
-◼ Solutions to problems are single sequence of actions and cannot handle any unexpected events.
+– The environment is {static}, because formulating and solving the problem is done without paying attention to any changes that might be occurring in the environment.
+– The {initial state is known}; knowing it is easiest if the environment is {observable}.
+– The {environment can be viewed as discrete} to allow enumerating “alternative courses of action”.
+– the {environment is deterministic}.
+◼ Solutions to problems are {single sequence of actions} and {cannot handle any unexpected events}.
 ◼ Solutions are executed without paying attention to the percepts!!
 
 
 Problem Types
-◼ There are four essentially different types of problems:
+◼ There are {four} essentially different types of problems:
 – Single-state problems
-» The agent’s sensors provide enough information for the agent to tell exactly which state it is in => Fully observable.
-» The agent knows exactly the effects of all its actions => Deterministic.
-» Then, the agent can calculate exactly which state it will be in after any sequence of actions.
+» The agent’s sensors provide enough information for the agent to tell exactly which state it is in => {Fully observable}.
+» The agent knows exactly the effects of all its actions => {Deterministic}.
+» Then, the agent can calculate exactly which {state} it will be in after any sequence of actions.
+
 – Multiple-state (sensorless) problems
-» The agent is not certain about which state in a given set of states it is in (has limited access to the world state) => Non-observable.
-» The agent knows exactly the effects of all its actions => Deterministic.
-» the agent must reason about sets of states that it might get to, rather than single states.
+» The agent is not certain about which state in a given set of states it is in (has limited access to the world state) => {Non-observable}.
+» The agent knows exactly the effects of all its actions => {Deterministic}.
+» the agent must reason about {sets of states} that it might get to, rather than single states.
+
 – Contingency problems
-» Nondeterministic and/or partially observable
-» Solving this problem requires sensing during the execution phase.
-◼ Percepts provide new information about current state
-» The agent must now calculate a whole tree of actions, rather than a single action sequence.
-◼ Each branch of the tree deals with a possible contingency that might arise.
+» {Nondeterministic and/or partially observable}
+» Solving this problem {requires sensing during the execution phase}.
+  ◼ Percepts provide new information about current state
+» The agent {must} now {calculate a whole tree of actions}, rather than a {single action sequence}.
+  ◼ Each branch of the tree deals with a possible contingency that might arise.
+
 – Exploration problems
 » Unknown state space (as lost in a desert without a map)
 » The agent must experiment, gradually discovering what its actions do and what sorts of states exist.
@@ -84,51 +86,27 @@ Example: Multiple-state Problem
 Example: Contingency Problem
 
 Well-defined Problems and Solutions
-◼ A problem is really a collection of information that the agent will use to decide what to do.
+◼ A problem->collection of information that the agent will use to decide what to do.
 ◼ A problem can be defined formally by five components:
-– The initial state that the agent starts in.
-– A description of the possible actions available to the agent.
-– A description of what each action does; named transition model.
-– The goal test, which determines whether a given state is a goal state.
-– A path cost function that assigns a numeric cost to each path.
-◼ A problem is really a collection of information that the agent will use to decide what to do.
-◼ A problem can be defined formally by five components:
-– The initial state that the agent starts in.
-– A description of the possible actions available to the agent.
+– The {initial state} that the agent starts in.
+– A description of the possible {actions} available to the agent.
 » Given a particular state s, ACTIONS(s) returns the set of actions that can be executed in s.
 » We say that each of these actions is applicable in s.
-– A description of what each action does; named transition model.
-– The goal test, which determines whether a given state is a goal state.
-– A path cost function that assigns a numeric cost to each path.
-◼ A problem is really a collection of information that the agent will use to decide what to do.
-◼ A problem can be defined formally by five components:
-– The initial state that the agent starts in.
-– A description of the possible actions available to the agent.
-– A description of what each action does; named transition model.
+– A description of what each action does; named {transition model}.
 » specified by a function RESULT(s, a) that returns the state that results from doing action a in state s.
 » We also use the term successor to refer to any state reachable from a given state by a single action.
-– The goal test, which determines whether a given state is a goal state.
-– A path cost function that assigns a numeric cost to each path.
-◼ A problem is really a collection of information that the agent will use to decide what to do.
-◼ A problem can be defined formally by five components:
-– The initial state that the agent starts in.
-– A description of the possible actions available to the agent.
-– A description of what each action does; named transition model.
-– The goal test, which determines whether a given state is a goal state.
+– The {goal test}, which determines whether a given state is a goal state.
 » Sometimes there is an explicit set of possible goal states, and the test simply checks whether the given state is one of them.
 » Sometimes the goal is specified by an abstract property.
-– A path cost function that assigns a numeric cost to each path. 
+– A {path cost} function that assigns a numeric cost to each path. 
 Single-state Problem Formulation check slide 20
 ◼ A problem is defined by five items:
 – Initial state
 » e.g., In(Arad)
 – Actions
-» e.g., from the state In(Arad), the applicable actions are {Go(Sibiu),
-Go(Timisoara), Go(Zerind)}.
+» e.g., from the state In(Arad), the applicable actions are {Go(Sibiu),Go(Timisoara), Go(Zerind)}.
 – Transition model
-» e.g., we have RESULT(In(Arad), Go(Zerind)) = In(Zerind)
-or successor function Succ(x) = set of action–state pairs
-e.g., Succ(In(Arad)) = {<Go(Zerind), In(Zerind)>, ... }
+» e.g., we have RESULT(In(Arad), Go(Zerind)) = In(Zerind) or successor function Succ(x) = set of action–state pairs e.g., Succ(In(Arad)) = {<Go(Zerind), In(Zerind)>, ... }
 – Goal test
 » can be explicit, e.g., x =In(Bucharest) or implicit, e.g., Checkmate(x)
 – Path cost (additive)
@@ -137,37 +115,24 @@ e.g., Succ(In(Arad)) = {<Go(Zerind), In(Zerind)>, ... }
 solution-> seq of actions-> leading ->initial state -> goal state
 
 Well-defined Problems and Solutions
-◼ The initial state, actions, and transition model implicitly
-define the state space of the problem.
-– A state space is the set of all states reachable from the initial
-state by any sequence of actions.
-– A state space forms a graph (as Romania map) in which the
-nodes are states and the arcs between nodes are actions.
-– A path in the state space is a sequence of states connected by
-a sequence of actions.
-◼ The problem-solving agent chooses a cost function that
-reflects its own performance measure.
-– Assuming that the cost of a path can be described as the sum
-of the costs of the individual actions along the path.
-◼ A solution to a problem is:
-– A path from the initial state to a state that satisfies the goal
-test and its quality is measured by the path cost function.
-
+◼ The initial state, actions, and transition model implicitly define the {state space} of the problem.
+– A state space is the set of all states reachable from the initial state by any sequence of actions.
+– A state space forms a graph (as Romania map) in which the nodes are states and the arcs between nodes are actions.
+– A {path} in the state space is a sequence of states connected by a sequence of actions.
+◼ The problem-solving agent chooses a cost function that reflects its own performance measure.
+– Assuming that the cost of a path can be described as the sum of the costs of the individual actions along the path.
+◼ A {solution} to a problem is:
+– A path from the initial state to a state that satisfies the goal test and its quality is measured by the path cost function.
 
 Selecting a State Space
 ◼ Real world is absurdly complex
 – State space must be abstracted for problem solving
-– Process of removing irrelevant detail from a representation is
-called abstraction.
+– Process of removing irrelevant detail from a representation is called {abstraction}.
 ◼ (Abstract) state = set of real states
 ◼ (Abstract) action = complex combination of real actions
-– e.g.,
-“Arad → Zerind” represents a complex set of possible
-routes, detours, rest stops, etc.
-– For guaranteed realizability, any real state In(Arad) must
-get to some real state In(Zerind)
-◼ (Abstract) solution = set of real paths that are solutions
-in the real world
+– e.g., “Arad → Zerind” represents a complex set of possible routes, detours, rest stops, etc.
+– For guaranteed realizability, any real state In(Arad) must get to some real state In(Zerind)
+◼ (Abstract) solution = set of real paths that are solutions in the real world
 
 EASY
 Vacuum World State Space Graph see slide 23,24
@@ -175,55 +140,27 @@ Example: The 8-puzzle 25,26
 Example: robotic assembly 27,28
 
 Real World Problems
-◼ We have already seen how the route-finding problem
-is defined in terms of specified locations and transitions
-along links between them.
-– This problem algorithms are used in a variety of applications,
-such as in-car systems that provide driving directions, routing
-video streams in computer networks, military operations
-planning, and airline travel-planning systems.
-◼ Touring problems (as traveling salesperson problem)
-are related to route-finding problems, but with an
-important difference.
-◼ Robot navigation is a generalization of the route-
-finding problem.
-– But; rather than following a discrete set of routes, a robot can
-move in a continuous space with an infinite set of possible
-actions and states.
-◼ A VLSI layout problem requires positioning millions
-of components and connections on a chip.
-– The objectives are to minimize area, minimize circuit delays,
-and maximize manufacturing yield.
-◼ Automatic assembly sequencing of complex objects
-by a robot.
-– The aim is to find an order in which to assemble the parts of
-some object.
-– If the wrong order is chosen, there will be no way to add some
-part later in the sequence without undoing some of the work
-already done.
+◼ We have already seen how the route-finding problem is defined in terms of specified locations and transitions along links between them.
+– This problem algorithms are used in a variety of applications, such as in-car systems that provide driving directions, routing video streams in computer networks, military operations planning, and airline travel-planning systems.
+◼ Touring problems (as traveling salesperson problem) are related to route-finding problems, but with an important difference.
+◼ Robot navigation is a generalization of the route-finding problem.
+– But; rather than following a discrete set of routes, a robot can move in a continuous space with an infinite set of possible actions and states.
+◼ A VLSI layout problem requires positioning millions of components and connections on a chip.
+– The objectives are to minimize area, minimize circuit delays, and maximize manufacturing yield.
+◼ Automatic assembly sequencing of complex objects by a robot.
+– The aim is to find an order in which to assemble the parts of some object.
+– If the wrong order is chosen, there will be no way to add some part later in the sequence without undoing some of the work already done.
 ◼ Another important assembly problem is protein design
-– The goal is to find a sequence of amino acids that will fold
-into a three-dimensional protein with the right properties to
-cure some disease.
+– The goal is to find a sequence of amino acids that will fold into a three-dimensional protein with the right properties to cure some disease.
 
 Searching for Solutions
-◼ The search process can be seen as building up a search
-tree that is applied to search nodes over the state space.
-– The root of the tree is a node corresponding to the initial state;
-the branches are actions and the nodes correspond to states in
-the state space of the problem.
+◼ The search process can be seen as building up a search tree that is applied to search nodes over the state space.
+– The root of the tree is a node corresponding to the initial state; the branches are actions and the nodes correspond to states in the state space of the problem.
 – At each step, testing whether the current state a goal state.
-– If it is not, expanding the current state; by applying each legal
-action, to generate a new set of states.
-– Selecting one state from the set of generated states to be the
-current state and putting others aside for later, in case the
-selected state does not lead to a solution.
-– Continue testing, expanding, and selecting until either a
-solution is found or there are no more states to expand.
-is called the frontier. <-!!!!!!!!!!!!!!!
-◼ The choice of which state to expand first is determined
-by the search strategy of each search algorithm.
-
+– If it is not, expanding the current state; by applying each legal action, to generate a new set of states.
+– Selecting one state from the set of generated states to be the current state and putting others aside for later, in case the selected state does not lead to a solution.
+– Continue testing, expanding, and selecting until either asolution is found or there are no more states to expand. is called the frontier. <-!!!!!!!!!!!!!!!
+◼ The choice of which state to expand first is determined by the search strategy of each search algorithm.
 
 Partial Search Tree for Finding a Route From Arad to Bucharest 32-34
 Initial Description of Tree-search Algorithm 35
