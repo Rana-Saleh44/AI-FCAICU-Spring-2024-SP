@@ -34,19 +34,19 @@ Arad-> Bucharest
 
 Problem-Solving Agents check slide 8 {I'll see if I'll use goal based or utility based}
 ◼ A kind of {goal-based agents}-> by finding sequences of actions that lead to desirable states.
-◼ Goals help to organize behavior by limiting the objectives that the agent is trying to achieve.
+◼ Goals help to organize behavior by limiting
 ◼ {Goal formulation} is the first step in problem solving, based on the current situation and the agent’s performance measure.
-– As well as formulating a goal, the agent may wish to decide on some {other factors} that affect the desirability of different ways of achieving the goal.
+– formulating a goal+may->{other factors} that affect the desirability of different ways of achieving the goal.
 ◼ {Problem formulation}->actions and states "what are the restriction like time and so on"
-◼ An agent with {several} immediate options of unknown value can decide what to do by first examining different possible sequences of actions that lead to states of known value, and then choosing the {best sequences}.
+◼ An agent {several} options, and the choose->{best sequences}.
 – This process of looking for such a sequence is called {search}.
 – A search algorithm takes a problem as input and returns a solution in the form of an action sequence.
 – Once a solution is found, the actions it recommends can be carried out through the {execution phase}.
 ◼ Thus, the agent design is simply consists of “formulate, search, execute” phases.
 – Once the solution has been executed, the agent will formulate a new goal.
-Problem-Solving Agents  slide 8
-◼ The agent design assumes that:
-– The environment is {static}, because formulating and solving the problem is done without paying attention to any changes that might be occurring in the environment.
+Problem-Solving Agents  slide 8  implicitly there are a model that show how it evolves it take a feedback there is a new pericept but it ignore it
+◼  for the previous the agent design assumes that:
+– The environment is {static}, without paying attention to any changes
 – The {initial state is known}; knowing it is easiest if the environment is {observable}.
 – The {environment can be viewed as discrete} to allow enumerating “alternative courses of action”.
 – the {environment is deterministic}.
@@ -166,75 +166,50 @@ Partial Search Tree for Finding a Route From Arad to Bucharest 32-34
 Initial Description of Tree-search Algorithm 35
 
 Avoiding Repeated States
-◼ Possibility of wasting time by expanding repeated states
-that have already been encountered and expanded before
-by loopy paths.
+◼ Possibility of wasting time by expanding repeated states that have already been encountered and expanded before by loopy paths.
 – For some problems, this possibility never comes up.
 » The state space is a tree and there is only one path to each state.
 – For other problems, repeated states are unavoidable.
 » This includes all problems where the operators are reversible.
 ◼ Search trees for repeated states problems are infinite.
-– But, some of its repeated states can be pruned to make the
-search tree down to finite size.
-◼ Repeated states can cause a solvable problem to become
-unsolvable if the search algorithm does not detect them.
-◼ Loopy paths are a special case of the more general
-concept of redundant paths, which exist when there is
-more than one way to get from one state to another.
-– If we are concerned about reaching the goal, there’s never
-any reason to keep more than one path to any given state.
-◼ The way to avoid exploring redundant paths is to
-remember where one has been.
-– To do this, we enhance the TREE-SEARCH algorithm with a
-data structure called the explored set (also known as the
-closed list), which remembers every expanded node.
-– Newly generated nodes that match previously generated
-nodes can be discarded instead of being added to the frontier.
-◼ The new algorithm is called GRAPH-SEARCH and it is
-more efficient on problems with many repeated states.
-
+– But, some of its repeated states can be pruned to make the search tree down to finite size.
+◼ Repeated states can cause a solvable problem to become unsolvable if the search algorithm does not detect them.
+◼ Loopy paths are a special case of the more general concept of redundant paths, which exist when there is more than one way to get from one state to another.
+– If we are concerned about reaching the goal, there’s never any reason to keep more than one path to any given state.
+◼ The way to avoid exploring redundant paths is to remember where one has been.
+– To do this, we enhance the TREE-SEARCH algorithm with a data structure called the explored set (also known as the closed list), which remembers every expanded node.
+– Newly generated nodes that match previously generated nodes can be discarded instead of being added to the frontier.
+◼ The new algorithm is called GRAPH-SEARCH and it is more efficient on problems with many repeated states.
 
 Initial Description of Graph-search Algorithm 38
 
 State Space vs. Search Tree 40
-◼ Essential to distinguish between the state space and the
-search tree.
-◼ Important to remember the difference between the nodes
-and the states.
-– A node is a bookkeeping data structure used to represent the
-search tree.
+◼ Essential to distinguish between the state space and the search tree.
+◼ Important to remember the difference between the nodes and the states.
+– A node is a bookkeeping data structure used to represent the search tree.
 – A state corresponding to a configuration of the world.
 ◼ Thus, nodes are on particular paths, whereasstates do not.
-– Two different nodes can contain the same world state, if that
-state is generated via two different search paths.
-◼ Need to represent the collection of nodes that have been
-generated but not yet expanded (called the frontier).
-
+– Two different nodes can contain the same world state, if that state is generated via two different search paths.
+◼ Need to represent the collection of nodes that have been generated but not yet expanded (called the frontier).
 
 Needed Data Structures
-◼ Search algorithms require a data structure to keep track
-of the search tree that is being constructed.
-◼ For each node of the tree, we have a structure that
-contains four components:
+◼ Search algorithms require a data structure to keep track of the search tree that is being constructed.
+◼ For each node of the tree, we have a structure that contains four components:
 – State: the state in the state space to which the node corresponds
 – Parent: the node in the search tree that generated this node
 – Action: the action that was applied to generate the node
 – Path-cost: the cost of the path from the initialstate to the node
-◼ The frontier needs to be stored in such a way that the
-search algorithm can easily choose the next node to
-expand according to its preferred strategy.
+◼ The frontier needs to be stored in such a way that the search algorithm can easily choose the next node to expand according to its preferred strategy.
 – The appropriate data structure for this is a priority queue.
 
 
 Search Strategies
 ◼ A search strategy is defined by the order of node expansion.
 ◼ Strategies are evaluated along the following dimensions:
-– Completeness: is the strategy guaranteed to find a solution
-when there is one?
+– Completeness: is the strategy guaranteed to find a solution when there is one?
 – Optimality: does the strategy always find a least-costsolution?
 – Time complexity: how long does it take to find a solution?
-– Space complexity: how much memory is needed to perform
-the search?
+– Space complexity: how much memory is needed to perform the search?
 ◼ Time and space complexity are measured in terms of:
 – b: maximum branching factor of the search tree.
 – d: depth of the least-cost solution (shallowest goal node).
@@ -242,27 +217,21 @@ the search?
 
 Search Strategies
 ◼ Uninformed (Blind) search:
-– The search does not have additional information about states
-beyond that provided in the problem definition.
-– Include: breadth-first, uniform-cost, depth-first, depth limited,
-iterative deepening, and bidirectional search
+– The search does not have additional information about states beyond that provided in the problem definition.
+– Include: breadth-first, uniform-cost, depth-first, depth limited, iterative deepening, and bidirectional search
 ◼ Informed (Heuristic) search:
 – The search is guided by an evaluation function:
 – Include: Greedy best-first, A*, IDA*, and beam search
 ◼ Optimization
 – The search is to find an optimal value of an objective function
-– Include: Hill climbing, simulated annealing, genetic algorithms,
-Ant Colony Optimization
+– Include: Hill climbing, simulated annealing, genetic algorithms, Ant Colony Optimization
 ◼ Game playing
 – An adversarial search: Mini-max algorithm, alpha-beta pruning
 
 Uninformed (Blind) Search Strategies
-◼ They have no additional information about states beyond
-that provided in the problem definition.
-– All they can do is generate successors and distinguish a goal
-state from a non-goal state.
-– All they are distinguished by the order in which nodes are
-expanded.
+◼ They have no additional information about states beyond that provided in the problem definition.
+– All they can do is generate successors and distinguish a goal state from a non-goal state.
+– All they are distinguished by the order in which nodes are  expanded.
 ◼ The six uninformed search strategies are:
 – Breadth-first search
 – Uniform-cost search
