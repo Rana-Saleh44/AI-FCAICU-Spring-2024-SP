@@ -50,20 +50,15 @@ suck; otherwise move to the other square.
 
 
 How Agents Should Act
-◼ What makes an agent good or bad, intelligent or stupid?
 ◼ A rational agent is one that does “the right thing” based on what it can perceive and the actions it can perform.
 ◼ The right action is the one that will cause the agent to
 be most successful
-– Leaves us with the problem of deciding how and when to
-evaluate the agent's success.
-◼ We use the term performance measure for the how —
-the criteria that determine how successful an agent is.
-◼ The when of evaluating performance is also important.
+–  how and when to evaluate the agent's success.
+◼performance measure for the how
 
 How Agents Should Act
 not one fixed measure suitable for all agents.
 – There are different criteria for different agents.
-◼ Therefore, we will insist on an objective performance measure imposed by some authority.
 ◼ Outside observers establish a standard of what it means to be successful in an environment and use it to measure the performance of agents.
 – E.g., performance measure of a vacuum-cleaner agent could be amount of dirt cleaned up, amount of time taken, amount of electricity consumed, amount of noise generated, etc.
 

@@ -1,14 +1,12 @@
 Solving Problems by Searching
-Chapter Outline
 ◼ Problem-solving agents
 ◼ Problem types
 ◼ Problem formulation
-◼ Example problems
 ◼ Uninformed (Blind) search
 ◼ Informed (Heuristic) search
 
 Why Search ?
-◼ Early works of AI was mainly towards
+◼ Early AI
 – Theorems proving
 – Solving puzzles
 – Playing games
