@@ -196,9 +196,10 @@ even I didn't make it know how to build a table !! dr
 
 Agent Program
 ◼ We will consider four types of agent program that represent the principles underlying of almost all intelligence systems:
-– Simple reflex agents
-– Model-based reflex agents
-– Goal-based agents
+– Simple reflex agents->fully obserable
+– Model-based reflex agents-> partially observable-> it must have a model
+both the previous there are uncertainty and only the reflex there are no goal that it want to achieve.
+– Goal-based agents->
 – Utility-based agents
 
 reflex->automatic reaction..like pulling your hand away from something hot without thinking about it.
@@ -216,7 +217,8 @@ Simple Reflex Agents
 
 Model-based Reflex Agents check slide 39,40
 ◼ {Most effective} way to handle {partial observability} is to keep track of part of the world it can not see now.
-– The agent {maintains}some sort of {nternal state}that depends on {percept history} and reflects some aspects of the current state.
+– The agent {maintains}some sort of {internal state}that depends on {percept history} and reflects some aspects of the current state.
+** after making the action and get the feedback it modify the internal state.
 ◼ Two kinds of knowledge->model->must be encoded in the agent program->to update the internal state information:
 – First,some info about how the {world evolves independently} of the agent.
 – Second,some info about how the {agent's own actions} affect the world.
@@ -224,9 +226,10 @@ Model-based Reflex Agents check slide 39,40
 ◼ Details of how models and states are represented vary widely depending on the type of environment and the particular technology used in the agent design.
 ◼ Regardless of the kind of representation used, it is seldom"rare" possible for the agent to determine exactly the current state of a partially observable environment.
 – For that reason, uncertainty about the current state may be unavoidable, but the agent still has to make a decision.
-– Therefore, the internal “state” maintained by a model-based agent may be not describe “what the world is like now” in a literal sense.
+– Therefore, the internal “state” maintained by a model-based agent may be not describe “what the world is like now” in a literal sense. 
+environment evolve POINT!!????
 
-Goal-based Agents check slide 43,44   {the additional of the previous is that +goal to the model  & the decesion is different}
+Goal-based Agents check slide 43,44   {the additional of the previous agent is that +goal to the model  & the decesion is different}
 ◼ Knowing about the {current state} of the environment is {not always enough} to decide what to do.
 – The agent needs some sort of goal information, which describes situations that are desirable.
 ◼ The agent program can combine the "goal with the model" (same information used in the model-based reflex agent) in order to choose actions that achieve that goal.
