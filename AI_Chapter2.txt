@@ -154,24 +154,17 @@ clearly defined percepts and actions.
 » In a known environment, the outcomes (or outcome probabilities if the environment is stochastic) for all actions are given.
 » Obviously, if the environment is unknown, the agent will have to learn how it works in order to make good decisions.
 » The distinction between known and unknown environments is not the same as the one between fully and partially observable environments.
-◼ It is possible for a known environment to be partially observable—for
-example, in solitaire card games, I know the rules but am still unable to see
-the cards that have not yet been turned over.
-◼ Conversely, an unknown environment can be fully observable—in a new
-video game, the screen may show the entire game state but I still don’t
-know what the buttons do until I try them.
+◼ It is possible for a known environment to be partially observable—for example, in solitaire card games, I know the rules but am still unable to see the cards that have not yet been turned over.
+◼ Conversely, an unknown environment can be fully observable—in a new video game, the screen may show the entire game state but I still don’t know what the buttons do until I try them.
 
 Properties of Task Environments  check slide 28 
 ◼ The hardest case is partially observable, multi-agent, stochastic, sequential, dynamic, continuous, and unknown.
 
 Structure of Agents
-◼ AI job is to design the agent program that implements
-the agent function mapping percepts to actions.
-◼ Obviously, the designed program for an agent must to
-be appropriate for that agent architecture.
-Agent = Architecture + Program
-◼ The agent architecture is some sort of computing device,
-the program run on it, with physicalsensors and actuators.
+◼ AI job is to design the agent program that implements the agent function mapping percepts to actions.
+◼ Obviously, the designed program for an agent must to be appropriate for that agent architecture.
+                Agent = Architecture + Program
+◼ The agent architecture is some sort of computing device, the program run on it, with physicalsensors and actuators.
 ◼ The architecture has three functions:
 1. Makes the percepts from sensors available to the program.
 2. Runs the program.
@@ -180,43 +173,29 @@ the program run on it, with physicalsensors and actuators.
 Skeleton Agent check slide 30!!
 Table-Driven Agent slide 33!!
 
-
 Skeleton Agent (cont.)
 ◼ On each invocation:
 – the agent's memory is updated to reflect the new percept
 – the best action is chosen
 – the fact that the action was taken is also stored in memory
 ◼ The memory persists from one invocation to the next.
-◼ It is up to the agent, if it so desires, to build up the
-percept sequence in memory.
-– In some environments, it is possible to be quite successful
-without storing the percept sequence.
-– In complex domains, it is infeasible to store the complete
-sequence.
-◼ The performance measure; not part of skeleton program;
-is applied externally to judge the behavior of the agent.
+◼ It is up to the agent, if it so desires, to build up the percept sequence in memory.
+– In some environments, it is possible to be quite successful without storing the percept sequence.
+– In complex domains, it is infeasible to store the complete sequence.
+◼ The performance measure; not part of skeleton program; is applied externally to judge the behavior of the agent.
 
 Table-Driven Agent
-◼ Operates by keeping in memory its percept sequence,
-and using it to index into table, which contains the
-appropriate action for all possible percept sequences.
+◼ Operates by keeping in memory its percept sequence, and using it to index into table, which contains the appropriate action for all possible percept sequences.
 ◼ Why this proposal is doomed to failure?
-1. The table needed for something as simple as an agent that can only
-play chess would be about 35100 entries.
+1. The table needed for something as simple as an agent that can only play chess would be about 35100 entries.
 2. The designer will take quite a long time to build the table.
-3. The agent has no autonomy at all, if the environment changed in
-some unexpected way, the agent would be lost.
-4. Even if the agent has a learning mechanism as well, to have a degree
-of autonomy, it would take forever to learn the right table entries.
-◼ AI challenge is to find out how to write a program that
-produce rational behavior from a small amount of code
-rather than from a large number of table entries.
+3. The agent has no autonomy at all, if the environment changed in some unexpected way, the agent would be lost.
+4. Even if the agent has a learning mechanism as well, to have a degree of autonomy, it would take forever to learn the right table entries.
+◼ AI challenge is to find out how to write a program that produce rational behavior from a small amount of code rather than from a large number of table entries.
 
 ####
 Agent Program
-◼ We will consider four types of agent program
-that represent the principles underlying of almost
-all intelligence systems:
+◼ We will consider four types of agent program that represent the principles underlying of almost all intelligence systems:
 – Simple reflex agents
 – Model-based reflex agents
 – Goal-based agents
@@ -225,102 +204,58 @@ all intelligence systems:
 Simple Reflex Agents check slide 35,37!!
 Simple Reflex Agents
 ◼ Simplest kind of agents.
-◼ These agents select actions on the basis of the current
-percept, ignoring the rest of the percept history.
-◼ The agent structure showing how condition-action rules
-allow making the connection from percept to action.
+◼ These agents select actions on the basis of the current percept, ignoring the rest of the percept history.
+◼ The agent structure showing how condition-action rules allow making the connection from percept to action.
 ◼ The agent program is very simple:
-– The INTERPRET-INPUT function generates an abstracted
-description of the current state from the percept.
-– The RULE-MATCH function returns the first rule in the set of
-rules that matches the given state description.
+– The INTERPRET-INPUT function generates an abstracted description of the current state from the percept.
+– The RULE-MATCH function returns the first rule in the set of rules that matches the given state description.
 ◼ Work only if the environment is fully observable.
 – A little bit of observability can cause serious trouble.
 
 Model-based Reflex Agents check slide 39,40
-◼ Most effective way to handle partial observability is to
-keep track of part of the world it can not see now.
-– The agent maintains some sort of internal state that depends on
-percept history and reflects some aspects of the current state.
-◼ Two kinds of knowledge, which model the world, must
-be encoded in the agent program to update the internal
-state information:
-– First, we need some information about how the world evolves
-independently of the agent.
-– Second, we need some information about how the agent's own
-actions affect the world.
-◼ The agent structure showing how the current percept is
-combined with the old internal state to generate the
-updated description of the current state.
-◼ Details of how models and states are represented vary
-widely depending on the type of environment and the
-particular technology used in the agent design.
-◼ Regardless of the kind of representation used, it is
-seldom possible for the agent to determine exactly the
-current state of a partially observable environment.
-– For that reason, uncertainty about the current state may be
-unavoidable, but the agent still has to make a decision.
-– Therefore, the internal “state” maintained by a model-based
-agent may be not describe “what the world is like now” in a
-literal sense.
+◼ Most effective way to handle partial observability is to keep track of part of the world it can not see now.
+– The agent maintains some sort of internal state that depends on percept history and reflects some aspects of the current state.
+◼ Two kinds of knowledge, which model the world, must be encoded in the agent program to update the internal state information:
+– First, we need some information about how the world evolves independently of the agent.
+– Second, we need some information about how the agent's own actions affect the world.
+◼ The agent structure showing how the current percept is combined with the old internal state to generate the updated description of the current state.
+◼ Details of how models and states are represented vary widely depending on the type of environment and the particular technology used in the agent design.
+◼ Regardless of the kind of representation used, it is seldom possible for the agent to determine exactly the current state of a partially observable environment.
+– For that reason, uncertainty about the current state may be unavoidable, but the agent still has to make a decision.
+– Therefore, the internal “state” maintained by a model-based agent may be not describe “what the world is like now” in a literal sense.
 
 Goal-based Agents check slide 43,44
-◼ Knowing about the current state of the environment is
-not always enough to decide what to do.
-– The agent needs some sort of goal information, which
-describes situations that are desirable.
-◼ The agent program can combine the goal with the model
-(same information used in the model-based reflex agent)
-in order to choose actions that achieve that goal.
-– Sometimes, goal-based action will be simple, when goal
-satisfaction results immediately from a single action.
-– Sometimes, it will be more tricky, when the agent has to
-consider many trials to find a way to achieve the goal.
-◼ Search and planning are the subfields of AI devoted to
-finding action sequences that achieve the agent’s goals.
-◼ Decision making of this kind is different from the
-condition–action rules described earlier.
+◼ Knowing about the current state of the environment is not always enough to decide what to do.
+– The agent needs some sort of goal information, which describes situations that are desirable.
+◼ The agent program can combine the goal with the model (same information used in the model-based reflex agent) in order to choose actions that achieve that goal.
+– Sometimes, goal-based action will be simple, when goal satisfaction results immediately from a single action.
+– Sometimes, it will be more tricky, when the agent has to consider many trials to find a way to achieve the goal.
+◼ Search and planning are the subfields of AI devoted to finding action sequences that achieve the agent’s goals.
+◼ Decision making of this kind is different from the condition–action rules described earlier.
 – It involves consideration of the future for both:
 » What will happen if I do such-and-such?
 » Will that make me happy?
-◼ This agent is more flexible because the knowledge that
-supports its decisions is represented explicitly and can
-be modified.
+◼ This agent is more flexible because the knowledge that supports its decisions is represented explicitly and can be modified.
 
 Utility-based Agents  check slide 47,48
-◼ Goals alone are not really enough to generate high-
-quality behavior in most environment.
-– Goals just provide a crude binary distinction between “happy”
-and “unhappy” states.
-– Need a comparison of different world states according to
-exactly how happy they would make the agent.
-◼ Therefore, the agent wants some sort of utility function
-that internally measures its performance among different
-states of the world.
-– If the internal utility function and the external performance
-measure are in agreement
-– Then an agent that chooses actions to maximize its utility will
-be rational according to the external performance measure
-◼ In two kinds of cases, goals are inadequate but a utility-
-based agent can still make rational decisions:
-– First, when there are conflicting goals, only some of which can
-be achieved,
+◼ Goals alone are not really enough to generate high-quality behavior in most environment.
+– Goals just provide a crude binary distinction between “happy” and “unhappy” states.
+– Need a comparison of different world states according to exactly how happy they would make the agent.
+◼ Therefore, the agent wants some sort of utility function that internally measures its performance among different states of the world.
+– If the internal utility function and the external performance measure are in agreement
+– Then an agent that chooses actions to maximize its utility will be rational according to the external performance measure
+◼ In two kinds of cases, goals are inadequate but a utility-based agent can still make rational decisions:
+– First, when there are conflicting goals, only some of which can be achieved,
 » The utility function specifies the appropriate trade-off.
-– Second, when there are several goals that the agent can aim
-for, none of which can be achieved with certainty,
-» Utility provides a way in which the likelihood of success can be
-weighed up against the importance of the goals.
-◼ Technically, a rational utility-based agent chooses the
-action that maximizes the expected utility of the action
-outcomes.
+– Second, when there are several goals that the agent can aim for, none of which can be achieved with certainty,
+» Utility provides a way in which the likelihood of success can be weighed up against the importance of the goals.
+◼ Technically, a rational utility-based agent chooses the action that maximizes the expected utility of the action outcomes.
 
 Learning Agents check slide 50
 
 Summary
-◼ Agents interact with environments through actuators and
-sensors.
-◼ Agent function specifies the action taken by the agent in
-response to any percept sequence.
+◼ Agents interact with environments through actuators and sensors.
+◼ Agent function specifies the action taken by the agent in response to any percept sequence.
 ◼ Performance measure evaluates the environment sequence.
 ◼ A rational agent maximizes expected performance.
 ◼ Agent programs implement (some) agent functions.
