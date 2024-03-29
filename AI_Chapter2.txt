@@ -202,11 +202,12 @@ Agent Program
 – Utility-based agents
 
 reflex->automatic reaction..like pulling your hand away from something hot without thinking about it.
+current percepts->multiple sensors
 
 Simple Reflex Agents check slide 35,37!!
 Simple Reflex Agents
 ◼ Simplest kind of agents.
-◼ These agents select actions on the basis of the {current percept}, {ignoring}->percept history.
+◼ These agents select actions on the basis of the {current percept}, {ignoring}->percept history. therefore it could not have memory
 ◼ condition-action rules->percept to action.
 ◼ The agent program is very simple:
 – The INTERPRET-INPUT function generates an abstracted description of the current state from the percept.
