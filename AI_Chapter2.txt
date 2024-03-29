@@ -200,7 +200,7 @@ Agent Program
 – Model-based reflex agents-> partially observable-> it must have a model
 both the previous there are uncertainty and only the reflex there are no goal that it want to achieve.
 – Goal-based agents-> goal
-– Utility-based agents-> technique mda 2rbouh aw b3douh mn el goal. "heurestic search"
+– Utility-based agents-> technique mda 2rbouh aw b3douh mn el goal. "heurestic search" and also I could have multi-goal{better goal and better action}
 
 reflex->automatic reaction..like pulling your hand away from something hot without thinking about it.
 current percepts->multiple sensors
