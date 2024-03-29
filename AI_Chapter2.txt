@@ -1,7 +1,7 @@
 Chapter Outline *check the vid slide 3,7
 ◼ Agents and Environments
 ◼ How Agents Should Act
-◼ Rational Agents                                          percepts
+◼ Rational Agents                                        
 ◼ Task Environment of Agent
 ◼ Structure of Agents
 
@@ -29,9 +29,7 @@ Human agent has:
 
 Agents interact with environments through sensors and actuators.
 
-◼ Mathematically, an agent’s behavior is described by
-the agent function that maps from percept histories to
-actions:
+◼ Mathematically, an agent’s behavior is described by the agent function that maps from percept histories to actions:
                    [ f: P* → A ]
 
 agent function -> implemented by -> agent program -> running on -> agent architecture -> to produce -> f
