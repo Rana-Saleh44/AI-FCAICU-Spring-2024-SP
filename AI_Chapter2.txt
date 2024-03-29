@@ -259,7 +259,7 @@ Utility-based Agents  check slide 47,48
 it is also heuristic there are some sort of unceertainty
 high experience high performane 
 
-Learning Agents check slide 50 
+Learning Agents check slide 50 important chagpt
 performance elem.->agent
 +
 feedback of the action->internal evaluting da 8er external observer
