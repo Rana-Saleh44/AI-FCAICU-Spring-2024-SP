@@ -262,3 +262,5 @@ Summary
 ◼ Several basic agent architectures exist:
 – simple reflex, model-based, goal-based, utility-based
 ◼ All agents can improve their performance through learning.
+
+deterministic conditional strategic
