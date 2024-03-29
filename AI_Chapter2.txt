@@ -161,10 +161,9 @@ Properties of Task Environments  check slide 28
 ◼ The hardest case is partially observable, multi-agent, stochastic, sequential, dynamic, continuous, and unknown.
 
 Structure of Agents
-◼ AI job is to design the agent program that implements the agent function mapping percepts to actions.
 ◼ Obviously, the designed program for an agent must to be appropriate for that agent architecture.
                 Agent = Architecture + Program
-◼ The agent architecture is some sort of computing device, the program run on it, with physicalsensors and actuators.
+◼ The agent architecture->computing device, the program run on it, with physicalsensors and actuators.
 ◼ The architecture has three functions:
 1. Makes the percepts from sensors available to the program.
 2. Runs the program.
@@ -173,11 +172,11 @@ Structure of Agents
 Skeleton Agent check slide 30!!
 Table-Driven Agent slide 33!!
 
-Skeleton Agent (cont.)
+Skeleton Agent
 ◼ On each invocation:
 – the agent's memory is updated to reflect the new percept
 – the best action is chosen
-– the fact that the action was taken is also stored in memory
+– the action was taken is also stored in memory
 ◼ The memory persists from one invocation to the next.
 ◼ It is up to the agent, if it so desires, to build up the percept sequence in memory.
 – In some environments, it is possible to be quite successful without storing the percept sequence.
@@ -193,7 +192,6 @@ Table-Driven Agent
 4. Even if the agent has a learning mechanism as well, to have a degree of autonomy, it would take forever to learn the right table entries.
 ◼ AI challenge is to find out how to write a program that produce rational behavior from a small amount of code rather than from a large number of table entries.
 
-####
 Agent Program
 ◼ We will consider four types of agent program that represent the principles underlying of almost all intelligence systems:
 – Simple reflex agents
@@ -204,13 +202,12 @@ Agent Program
 Simple Reflex Agents check slide 35,37!!
 Simple Reflex Agents
 ◼ Simplest kind of agents.
-◼ These agents select actions on the basis of the current percept, ignoring the rest of the percept history.
-◼ The agent structure showing how condition-action rules allow making the connection from percept to action.
+◼ These agents select actions on the basis of the {current percept}, {ignoring}->percept history.
+◼ condition-action rules->percept to action.
 ◼ The agent program is very simple:
 – The INTERPRET-INPUT function generates an abstracted description of the current state from the percept.
 – The RULE-MATCH function returns the first rule in the set of rules that matches the given state description.
-◼ Work only if the environment is fully observable.
-– A little bit of observability can cause serious trouble.
+◼ Work {only} if the environment is {fully observable}.
 
 Model-based Reflex Agents check slide 39,40
 ◼ Most effective way to handle partial observability is to keep track of part of the world it can not see now.
