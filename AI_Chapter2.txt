@@ -34,23 +34,17 @@ Agents interact with environments through sensors and actuators.
 
 agent function -> implemented by -> agent program -> running on -> agent architecture -> to produce -> f
                    agent = architecture + program
- 
 
 example:
 Vacuum-cleaner world
 ◼ Environment: just two locations – squares A and B
-◼ Percepts: which square it is in (location) and whether
-there is dirt in the square (contents), e.g., [A, Dirty]
-◼ Actions: move left, move right, suck up the dirt, or do
-nothing
-◼ Agent function: if the current square is dirty, then
-suck; otherwise move to the other square.
-
+◼ Percepts: which square it is in (location) and whether there is dirt in the square (contents), e.g., [A, Dirty]
+◼ Actions: move left, move right, suck up the dirt, or do nothing
+◼ Agent function: if the current square is dirty, then suck; otherwise move to the other square.
 
 How Agents Should Act
 ◼ A rational agent is one that does “the right thing” based on what it can perceive and the actions it can perform.
-◼ The right action is the one that will cause the agent to
-be most successful
+◼ The right action is the one that will cause the agent to be most successful
 –  how and when to evaluate the agent's success.
 ◼performance measure for the how
 
@@ -64,14 +58,11 @@ example slide 10
 
 Rationality vs. Success
 ◼ Note that: rational ≠ successful
-◼ Rationality depends not only on the performance
-measure, but also on:
+◼ Rationality depends not only on the performance measure, but also on:
 – Agent’s sensory capabilities (what it can sense).
-» Coffee-agents that detect obstacles visually vs. those that use collision
-detection.
+» Coffee-agents that detect obstacles visually vs. those that use collision detection.
 – Agent’s actuator capabilities (what it can do).
-» Coffee-agents that can heat coffee with a built-in coil vs. those that
-cannot.
+» Coffee-agents that can heat coffee with a built-in coil vs. those that cannot.
 – Agent’s knowledge.
 » Informed agents, uninformed agents, misinformed agents.
 
@@ -83,39 +74,26 @@ things:
 – The actions that the agent can perform.
 – The agent’s percept sequence to date.
 ◼ Rational Agent Definition:
-For each possible percept sequence, a rational agent
-should select an action that is expected to maximize its
-performance measure, given the evidence provided by
-the percept sequence and whatever built-in knowledge
-the agent has.
+For each possible percept sequence, a rational agent should select an action that is expected to maximize its performance measure, given the evidence provided by the percept sequence and whatever built-in knowledge the agent has.
 
 Rational Agents
 ◼ Need to distinguish between rationality and omniscience
-– An omniscient agent (all-knowing with infinite knowledge)
-knows the actual outcome of its actions, and can act
-accordingly.
+– An omniscient agent (all-knowing with infinite knowledge) knows the actual outcome of its actions, and can act accordingly.
 – But omniscience is impossible in reality.
 ◼ Rationality is not the same as perfection
-– Rationality maximizes expected performance, while perfection
-maximizes actual performance.
-◼ Agents, to be rational, can perform actions to obtain
-useful information in order to modify future percepts
-(information gathering, exploration).
+– Rationality maximizes expected performance, while perfection maximizes actual performance.
+◼ Agents, to be rational, can perform actions to obtain useful information in order to modify future percepts (information gathering, exploration).
 ◼ A rational agent should be autonomous
-– Its behavior is determined by its own experience (with ability
-to learn and adapt its prior knowledge).
+– Its behavior is determined by its own experience (with ability to learn and adapt its prior knowledge).
 
 Specifying the Task Environment
-◼ To design an agent, the first step is to specify its task
-environment as fully as possible.
+◼ To design an agent, the first step is to specify its task environment as fully as possible.
 ◼ The task environment of any agent includes:
 1. Performance measure.
 2. Environment.
 3. Actuators.
 4. Sensors.
-◼ For the acronymically minded, we call this the PEAS
-(Performance, Environment, Actuators, Sensors)
-description.
+◼ For the acronymically minded, we call this the PEAS (Performance, Environment, Actuators, Sensors) description.
 
 slide 15,16,17,18 example
 
