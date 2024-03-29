@@ -210,19 +210,19 @@ Simple Reflex Agents
 ◼ Work {only} if the environment is {fully observable}.
 
 Model-based Reflex Agents check slide 39,40
-◼ Most effective way to handle partial observability is to keep track of part of the world it can not see now.
-– The agent maintains some sort of internal state that depends on percept history and reflects some aspects of the current state.
-◼ Two kinds of knowledge, which model the world, must be encoded in the agent program to update the internal state information:
-– First, we need some information about how the world evolves independently of the agent.
-– Second, we need some information about how the agent's own actions affect the world.
+◼ {Most effective} way to handle {partial observability} is to keep track of part of the world it can not see now.
+– The agent {maintains}some sort of {nternal state}that depends on {percept history} and reflects some aspects of the current state.
+◼ Two kinds of knowledge->model->must be encoded in the agent program->to update the internal state information:
+– First,some info about how the {world evolves independently} of the agent.
+– Second,some info about how the {agent's own actions} affect the world.
 ◼ The agent structure showing how the current percept is combined with the old internal state to generate the updated description of the current state.
 ◼ Details of how models and states are represented vary widely depending on the type of environment and the particular technology used in the agent design.
-◼ Regardless of the kind of representation used, it is seldom possible for the agent to determine exactly the current state of a partially observable environment.
+◼ Regardless of the kind of representation used, it is seldom"rare" possible for the agent to determine exactly the current state of a partially observable environment.
 – For that reason, uncertainty about the current state may be unavoidable, but the agent still has to make a decision.
 – Therefore, the internal “state” maintained by a model-based agent may be not describe “what the world is like now” in a literal sense.
 
 Goal-based Agents check slide 43,44
-◼ Knowing about the current state of the environment is not always enough to decide what to do.
+◼ Knowing about the {current state} of the environment is {not always enough} to decide what to do.
 – The agent needs some sort of goal information, which describes situations that are desirable.
 ◼ The agent program can combine the goal with the model (same information used in the model-based reflex agent) in order to choose actions that achieve that goal.
 – Sometimes, goal-based action will be simple, when goal satisfaction results immediately from a single action.
