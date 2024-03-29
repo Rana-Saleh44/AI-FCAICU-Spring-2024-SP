@@ -221,31 +221,31 @@ Model-based Reflex Agents check slide 39,40
 – For that reason, uncertainty about the current state may be unavoidable, but the agent still has to make a decision.
 – Therefore, the internal “state” maintained by a model-based agent may be not describe “what the world is like now” in a literal sense.
 
-Goal-based Agents check slide 43,44
+Goal-based Agents check slide 43,44   {the additional of the previous is that +goal to the model  & the decesion is different}
 ◼ Knowing about the {current state} of the environment is {not always enough} to decide what to do.
 – The agent needs some sort of goal information, which describes situations that are desirable.
-◼ The agent program can combine the goal with the model (same information used in the model-based reflex agent) in order to choose actions that achieve that goal.
-– Sometimes, goal-based action will be simple, when goal satisfaction results immediately from a single action.
-– Sometimes, it will be more tricky, when the agent has to consider many trials to find a way to achieve the goal.
+◼ The agent program can combine the "goal with the model" (same information used in the model-based reflex agent) in order to choose actions that achieve that goal.
+– {Sometimes}, goal-based action will be simple, when goal satisfaction results immediately from a single action.
+– {Sometimes}, it will be more tricky, when the agent has to consider many trials to find a way to achieve the goal.
 ◼ Search and planning are the subfields of AI devoted to finding action sequences that achieve the agent’s goals.
-◼ Decision making of this kind is different from the condition–action rules described earlier.
+◼{{ Decision making of this kind is different from the condition–action rules described earlier.}}
 – It involves consideration of the future for both:
 » What will happen if I do such-and-such?
 » Will that make me happy?
-◼ This agent is more flexible because the knowledge that supports its decisions is represented explicitly and can be modified.
+◼ This agent is {more flexible} because the knowledge that supports its decisions is{ represented explicitly and can be modified}.
 
 Utility-based Agents  check slide 47,48
-◼ Goals alone are not really enough to generate high-quality behavior in most environment.
-– Goals just provide a crude binary distinction between “happy” and “unhappy” states.
+◼ {Goals alone} are {not really enough} to generate high-quality behavior in most environment.
+– Goals just provide a crude binary distinction between “happy” and “unhappy” states.  {without considering any nuances or details in between.}
 – Need a comparison of different world states according to exactly how happy they would make the agent.
-◼ Therefore, the agent wants some sort of utility function that internally measures its performance among different states of the world.
-– If the internal utility function and the external performance measure are in agreement
+◼ Therefore, the agent wants some sort of {utility function} that {internally measures its performance} among different states of the world.
+–> If the internal utility function and the external performance measure are in agreement
 – Then an agent that chooses actions to maximize its utility will be rational according to the external performance measure
-◼ In two kinds of cases, goals are inadequate but a utility-based agent can still make rational decisions:
+◼ In two kinds of cases, goals are inadequate{insufficient or not enough} but a utility-based agent can still make rational decisions:
 – First, when there are conflicting goals, only some of which can be achieved,
 » The utility function specifies the appropriate trade-off.
 – Second, when there are several goals that the agent can aim for, none of which can be achieved with certainty,
-» Utility provides a way in which the likelihood of success can be weighed up against the importance of the goals.
+» Utility provides a way in which the likelihood of {success can be weighed up against the importance of the goals.}
 ◼ Technically, a rational utility-based agent chooses the action that maximizes the expected utility of the action outcomes.
 
 Learning Agents check slide 50
@@ -262,9 +262,3 @@ Summary
 ◼ Several basic agent architectures exist:
 – simple reflex, model-based, goal-based, utility-based
 ◼ All agents can improve their performance through learning.
-
-
-
-
-
-
