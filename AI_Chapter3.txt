@@ -38,37 +38,37 @@ Problem-Solving Agents check slide 8 {I'll see if I'll use goal based or utility
 ◼ {Goal formulation} is the first step in problem solving, based on the current situation and the agent’s performance measure.
 – formulating a goal+may->{other factors} that affect the desirability of different ways of achieving the goal.
 ◼ {Problem formulation}->actions and states "what are the restriction like time and so on"
-◼ An agent {several} options, and the choose->{best sequences}.
-– This process of looking for such a sequence is called {search}.
+◼ An agent {several} options, and the choose->{best sequences}->{search}.
 – A search algorithm takes a problem as input and returns a solution in the form of an action sequence.
 – Once a solution is found, the actions it recommends can be carried out through the {execution phase}.
 ◼ Thus, the agent design is simply consists of “formulate, search, execute” phases.
 – Once the solution has been executed, the agent will formulate a new goal.
 Problem-Solving Agents  slide 8  implicitly there are a model that show how it evolves it take a feedback there is a new pericept but it ignore it
-◼  for the previous the agent design assumes that:
+◼  for the previous the agent design assumes that: the easiest one 3  single state problem
 – The environment is {static}, without paying attention to any changes
-– The {initial state is known}; knowing it is easiest if the environment is {observable}.
+– The {initial state is known},{observable} to know how to search.
 – The {environment can be viewed as discrete} to allow enumerating “alternative courses of action”.
-– the {environment is deterministic}.
+– the {environment is deterministic}. kol action 3rfen ntegth eh
 ◼ Solutions to problems are {single sequence of actions} and {cannot handle any unexpected events}.
-◼ Solutions are executed without paying attention to the percepts!!
+◼ Solutions are executed without paying attention to the percepts while executing the action seq
 
 
 Problem Types
 ◼ There are {four} essentially different types of problems:
-– Single-state problems
-» The agent’s sensors provide enough information for the agent to tell exactly which state it is in => {Fully observable}.
+– Single-state problems  3 state->state
+» The agent’s sensors provide {enough information} for the agent to tell exactly which state it is in => {Fully observable}.
 » The agent knows exactly the effects of all its actions => {Deterministic}.
 » Then, the agent can calculate exactly which {state} it will be in after any sequence of actions.
 
-– Multiple-state (sensorless) problems
-» The agent is not certain about which state in a given set of states it is in (has limited access to the world state) => {Non-observable}.
+– Multiple-state (sensorless) problems   t5men
+» The agent is not certain 
+ {Non-observable}.
 » The agent knows exactly the effects of all its actions => {Deterministic}.
 » the agent must reason about {sets of states} that it might get to, rather than single states.
 
-– Contingency problems
-» {Nondeterministic and/or partially observable}
-» Solving this problem {requires sensing during the execution phase}.
+– Contingency problems  emergency the sol is not a path it's like tree  cus non deterministic 
+» {Nondeterministic {stochastic} y3ne m4 3rfa ntegt el action and/or partially observable }
+» Solving this problem {requires sensing {during} the execution phase}. conditional action
   ◼ Percepts provide new information about current state
 » The agent {must} now {calculate a whole tree of actions}, rather than a {single action sequence}.
   ◼ Each branch of the tree deals with a possible contingency that might arise.
