@@ -101,7 +101,7 @@ Properties of Task Environments
 ◼ The task environments can be categorized according to number of dimensions:
 – Fully observable (vs. partially observable): An agent's sensors give it access to the complete state of the environment at each point in time.
 – Single agent (vs. multi-agent): An agent operating by itself in an environment.
-– Deterministic (vs. stochastic): Next state of the environment is completely determined by the current state and the action executed by the agent.
+– Deterministic (vs. stochastic): Next state of the environment is completely {determined} by the current state and the action executed by the agent.
 – Episodic (vs. sequential): In an episodic task environment, the agent's experience is divided into atomic episodes – each episode consists of the agent percept and then performing a single action.
 – Dynamic vs. static: If the environment can change while an agent is deliberating.
 – Discrete (vs. continuous): A limited number of distinct,
